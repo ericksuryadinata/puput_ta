@@ -1,3 +1,4 @@
+
 @include('website.landing-page.layouts.navbar')
 
 @yield('content')
