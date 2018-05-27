@@ -1,41 +1,44 @@
+@section('additional-styles')
+    <style>
+        #ul-remove-margin{
+            margin-bottom:10px;
+        }
+    </style>
+@endsection
 <div class="dt-sc-hr-invisible"></div>
 <div class="fullwidth-section">
     <div class="fullwidth-bg">
-        <div class="content-full-width">
+        <div class="container">
             <div class="column dt-sc-one-fourth first" id="">
-                <div class="column dt-sc-one-column">
-                    <div class="dt-sc-titled-box-content-reset">
-                        <div class="dt-sc-titled-box  chocolate">
-                            <h6 class="dt-sc-titled-box-title">
-                                <span class="fa fa-graduation-cap"></span> Pendaftaran Mahasiswa Baru
-                            </h6>
-                            <div class="dt-sc-titled-box-content">
-                                Alur & Biaya Pendaftaran Mahasiswa Baru Teknik Informatika Untag Surabaya
+                <div class="dt-sc-toggle-set">
+                    <div class="dt-sc-toggle-frame">
+                        <h5 class="dt-sc-toggle-accordion active">
+                            <a href="#">Pendaftaran Mahasiswa Baru</a>
+                        </h5>
+                        <div class="dt-sc-toggle-content">
+                            <div class="block">
+                                Alur dan Biaya Pendaftaran Mahasiswa Baru Teknik Informatika Untag Surabaya
                                 <a class="dt-sc-button  small  ocean"  href="statis-75-pmb.html" target="_blank">PMB</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="column dt-sc-one-column">
-                    <div class="dt-sc-titled-box-content-reset">
-                        <div class="dt-sc-titled-box  chocolate">
-                            <h6 class="dt-sc-titled-box-title">
-                                <span class="fa fa-book"></span> Kurikulum Akademik
-                            </h6>
-                            <div class="dt-sc-titled-box-content">
+                    <div class="dt-sc-toggle-frame">
+                        <h5 class="dt-sc-toggle-accordion">
+                            <a href="#">Kurikulum Akademik</a>
+                        </h5>
+                        <div class="dt-sc-toggle-content">
+                            <div class="block">
                                 Mata Kuliah yang diajarkan di Teknik Informatika Untag Surabaya
                                 <a class="dt-sc-button small ocean"  href="#" target="_blank">Kurikulum</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="column dt-sc-one-column">
-                    <div class="dt-sc-titled-box-content-reset">
-                        <div class="dt-sc-titled-box  chocolate">
-                            <h6 class="dt-sc-titled-box-title">
-                                <span class="fa fa-file"></span> Hasil Karya
-                            </h6>
-                            <div class="dt-sc-titled-box-content">
+                    <div class="dt-sc-toggle-frame">
+                        <h5 class="dt-sc-toggle-accordion">
+                            <a href="#">Hasil Karya</a>
+                        </h5>
+                        <div class="dt-sc-toggle-content">
+                            <div class="block">
                                 Hasil Karya Mahasiswa & Dosen Teknik Informatika Untag Surabaya
                                 <a class="dt-sc-button small ocean" href="#" target="_blank">Hasil Karya</a>
                             </div>
@@ -49,19 +52,19 @@
                         <div id="rev_slider_24_1" class="rev_slider fullscreenbanner" style="display:none;">
                             <ul>	
                                 <li class="rs-slide1" data-transition="random">
-                                    <img src="{{base_url('uploads/images/slider/IMG_9919.JPG')}}" alt="bg1" style="object-fit:cover">
+                                    <img src="{{base_url('uploads/images/slider/IMG_9919.JPG')}}" alt="bg1" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                 
                                 <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/sdf2.jpg')}}" alt="bg2" style="object-fit:cover">
+                                    <img src="{{base_url('uploads/images/slider/sdf2.jpg')}}" alt="bg2" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                 
                                 <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/robot.jpg')}}" alt="bg3" style="object-fit:cover">
+                                    <img src="{{base_url('uploads/images/slider/robot.jpg')}}" alt="bg3" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                 
                                 <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/ramadhan2_-_Copy.jpg')}}" alt="bg4" style="object-fit:cover">
+                                    <img src="{{base_url('uploads/images/slider/ramadhan2_-_Copy.jpg')}}" alt="bg4" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                             </ul>
                 
@@ -72,12 +75,18 @@
                 </div>                    
             </div>
             <div class="column dt-sc-one-fourth">
-                <div class="side-nav-container">
-                    <ul>
-                        <li>Login</li>
-                        <li>Staf Site</li>
-                        <li>Berita</li>
-                    </ul>
+                <div class="dt-sc-titled-box ocean">
+                    <h6 class="dt-sc-titled-box-title">Informasi</h6>
+                    <div class="dt-sc-titled-box-content">
+                        <ul class="dt-sc-fancy-list  electricblue  arrow" id="ul-remove-margin">
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Berita</a></li>
+                            <li><a href="#">Pengumuman</a></li>
+                            <li><a href="#">Kerja Sama</a></li>
+                            <li><a href="#">Daftar Dosen</a></li>
+                            <li><a href="#">Daftar Staff</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

@@ -67,7 +67,7 @@
 	/*----*****---- << Toggle & Accordion >> ----*****----*/
 	
 	.dt-sc-toggle-set { float: left; margin: 0; padding: 0; width: 100%; }
-	.dt-sc-toggle-frame { border-width: 1px 1px 0 1px; border-style: solid; }
+	.dt-sc-toggle-frame { border-width: 1px 1px 1px 1px; border-style: solid; }
 	.dt-sc-toggle-frame.last { border-bottom: 1px solid; }
 	
 	h5.dt-sc-toggle-accordion, h5.dt-sc-toggle { clear:both; font-size:16px; margin:0px 0px 1px; padding:0px; position:relative; transition:all 300ms linear; -webkit-transition:all 300ms linear; -moz-transition:all 300ms linear; -o-transition:all 300ms linear; -ms-transition:all 300ms linear; }

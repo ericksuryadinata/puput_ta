@@ -1,8 +1,11 @@
 <div id="header-wrapper">
     <header id="header" class="header5">
         <div class="container">
+            <div id="logo">
+                <a href="index.html"> <img src="{{base_url('assets/website/images/logo.png')}}" alt="logo"> </a>
+            </div>
             <div id="primary-menu">
-                <div class="dt-menu-toggle" id="dt-menu-toggle">Menu<span class="dt-menu-toggle-icon"></span></div>      
+                <div class="dt-menu-toggle" id="dt-menu-toggle">Menu<span class="dt-menu-toggle-icon"></span></div>
                 <nav id="main-menu">
                     <ul id="menu-main-menu" class="menu">
                         <li class="menu-item-simple-parent menu-item-depth-0"><a href="index.html">Home</a></li>
@@ -24,9 +27,6 @@
                         <li class="menu-item-simple-parent menu-item-depth-0"><a href="#">Publikasi</a></li>
                     </ul>
                 </nav>
-            </div>
-            <div id="logo">
-                <a href="index.html"> <img src="{{base_url('assets/website/images/logo.png')}}" alt="logo"> </a>
             </div>
         </div>
     </header>

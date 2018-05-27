@@ -52,7 +52,7 @@ $(document).ready(function(){
     var setREVStartSize = function() {
         var	tpopt = new Object();
         tpopt.startwidth = 600;
-        tpopt.startheight = 400;
+        tpopt.startheight = 300;
         tpopt.container = jQuery('#rev_slider_24_1');
         tpopt.fullScreen = "off";
         tpopt.forceFullWidth="off";
@@ -126,7 +126,7 @@ $(document).ready(function(){
                 dottedOverlay:"none",
                 delay:9000,
                 startwidth:600,
-                startheight:400,
+                startheight:300,
                 hideThumbs:200,
 
                 thumbWidth:100,
