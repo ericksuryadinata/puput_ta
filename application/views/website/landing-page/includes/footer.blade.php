@@ -17,21 +17,21 @@
         <div class="column dt-sc-one-fourth">
             <aside class="widget widget_links">
                 <h3 class="widgettitle">YPTA Surabaya</h3>
-                <a href='http://untag-sby.ac.id' target='blank'> Universitas 17 Agustus 1945 Surabaya</a><br>
-                <a href='http://politag.ac.id' target='blank'> Politeknik 17 Agustus 1945 Surabaya</a><br>
-                <a href='http://smatag45.net' target='blank'> SMA 17 Agustus 1945 Surabaya</a><br>
-                <a href='http://smptag.sch.id' target='blank'> SMP 17 Agustus 1945 Surabaya</a>
+                <a href='http://untag-sby.ac.id' target='_blank'> Universitas 17 Agustus 1945 Surabaya</a><br>
+                <a href='http://politag.ac.id' target='_blank'> Politeknik 17 Agustus 1945 Surabaya</a><br>
+                <a href='http://smatag45.net' target='_blank'> SMA 17 Agustus 1945 Surabaya</a><br>
+                <a href='http://smptag.sch.id' target='_blank'> SMP 17 Agustus 1945 Surabaya</a>
             </aside>                
         </div>
         <div class="column dt-sc-one-fourth">
             <aside class="widget widget_recent_entries">
                 <h3 class="widgettitle">Unit Kerja</h3>
-                <a href='http://ft.untag-sby.ac.id' target='blank'> Fakultas Teknik Untag Sby</a><br>
-                <a href='http://bsiuntag-sby.com' target='blank'> Badan Sistem Informasi</a><br>
-                <a href='http://lppm.untag-sby.ac.id' target='blank'> Lembaga Penelitian & Pengabdian Pada Masyarakat</a><br>
-                <a href='http://lib.untag-sby.ac.id' target='blank'> Perpustakaan Untag</a><br>
-                <a href='http://kemahasiswaan.untag-sby.ac.id' target='blank'> Bagian Kemahasiswaan Untag</a><br>
-                <a href='index.html#' target='blank'> Bagian Akademik Untag</a><br>
+                <a href='http://ft.untag-sby.ac.id' target='_blank'> Fakultas Teknik Untag Sby</a><br>
+                <a href='http://bsiuntag-sby.com' target='_blank'> Badan Sistem Informasi</a><br>
+                <a href='http://lppm.untag-sby.ac.id' target='_blank'> Lembaga Penelitian & Pengabdian Pada Masyarakat</a><br>
+                <a href='http://lib.untag-sby.ac.id' target='_blank'> Perpustakaan Untag</a><br>
+                <a href='http://kemahasiswaan.untag-sby.ac.id' target='_blank'> Bagian Kemahasiswaan Untag</a><br>
+                <a href='#' target='_blank'> Bagian Akademik Untag</a><br>
             </aside> 
         </div>
 

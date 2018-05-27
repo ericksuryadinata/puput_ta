@@ -2,7 +2,7 @@
 
 use Philo\Blade\Blade as CoreBlade;
 
-class Blade extends CoreBlade
+class Page extends CoreBlade
 {
 	
 	public function __construct()

@@ -224,3 +224,4 @@ $(document).ready(function(){
     });
 
 </script>
+@yield('additional-scripts')

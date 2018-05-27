@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    @include('website.landing-page.layouts.meta-data')
-    @include('website.landing-page.layouts.styles')
+    @include('website.landing-page.includes.meta-data')
+    @include('website.landing-page.includes.styles')
 </head>
 <body>
     <div class="wrapper">
-        @include('website.landing-page.layouts.content')
+        @include('website.landing-page.includes.content')
     </div>
-    @include('website.landing-page.layouts.scripts')
+    @include('website.landing-page.includes.scripts')
 </body>
 </html>

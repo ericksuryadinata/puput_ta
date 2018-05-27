@@ -18,7 +18,7 @@
                         <div class="dt-sc-toggle-content">
                             <div class="block">
                                 Alur dan Biaya Pendaftaran Mahasiswa Baru Teknik Informatika Untag Surabaya
-                                <a class="dt-sc-button  small  ocean"  href="statis-75-pmb.html" target="_blank">PMB</a>
+                                <a class="dt-sc-button  small  ocean"  href="http://pmb.untag-sby.ac.id" target="_blank">PMB</a>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="dt-sc-toggle-content">
                             <div class="block">
                                 Mata Kuliah yang diajarkan di Teknik Informatika Untag Surabaya
-                                <a class="dt-sc-button small ocean"  href="#" target="_blank">Kurikulum</a>
+                                <a class="dt-sc-button small ocean"  href="{{base_url('kurikulum')}}" target="_blank">Kurikulum</a>
                             </div>
                         </div>
                     </div>
@@ -52,19 +52,19 @@
                         <div id="rev_slider_24_1" class="rev_slider fullscreenbanner" style="display:none;">
                             <ul>	
                                 <li class="rs-slide1" data-transition="random">
-                                    <img src="{{base_url('uploads/images/slider/IMG_9919.JPG')}}" alt="bg1">
+                                    <img src="{{base_url('uploads/images/slider/IMG_9919.JPG')}}" alt="bg1" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                 
                                 <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/sdf2.jpg')}}" alt="bg2">
+                                    <img src="{{base_url('uploads/images/slider/sdf2.jpg')}}" alt="bg2" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                 
                                 <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/robot.jpg')}}" alt="bg3">
+                                    <img src="{{base_url('uploads/images/slider/robot.jpg')}}" alt="bg3" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                 
                                 <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/ramadhan2_-_Copy.jpg')}}" alt="bg4">
+                                    <img src="{{base_url('uploads/images/slider/ramadhan2_-_Copy.jpg')}}" alt="bg4" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
                                 </li> 
                             </ul>
                 
@@ -79,6 +79,7 @@
                     <h6 class="dt-sc-titled-box-title">Informasi</h6>
                     <div class="dt-sc-titled-box-content">
                         <ul class="dt-sc-fancy-list  electricblue  arrow" id="ul-remove-margin">
+                            <li><a href="http://untag-sby.ac.id">Home Site</a></li>
                             <li><a href="#">Login</a></li>
                             <li><a href="#">Berita</a></li>
                             <li><a href="#">Pengumuman</a></li>
