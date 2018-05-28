@@ -2,7 +2,7 @@
 <link id="shortcodes-css" rel="stylesheet" href="{{base_url('assets/website/css/shortcodes.css')}}" type="text/css">
 <link id="responsive-css" rel="stylesheet" href="{{base_url('assets/website/css/responsive.css')}}" type="text/css">
 <link id="skin-css" rel="stylesheet" href="{{base_url('assets/website/skins/electricblue/style.css')}}" type="text/css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" type="text/css">
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" type="text/css"> --}}
 
 <!-- Additional Stylesheets -->    
 <link rel="stylesheet" href="{{base_url('assets/website/css/component.css')}}" type="text/css">

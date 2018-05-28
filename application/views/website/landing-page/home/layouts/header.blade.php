@@ -80,12 +80,11 @@
                     <div class="dt-sc-titled-box-content">
                         <ul class="dt-sc-fancy-list  electricblue  arrow" id="ul-remove-margin">
                             <li><a href="http://untag-sby.ac.id">Home Site</a></li>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Berita</a></li>
-                            <li><a href="#">Pengumuman</a></li>
-                            <li><a href="#">Kerja Sama</a></li>
-                            <li><a href="#">Daftar Dosen</a></li>
-                            <li><a href="#">Daftar Staff</a></li>
+                            <li><a href="{{base_url('superuser')}}">Login</a></li>
+                            <li><a href="{{base_url('berita')}}">Berita</a></li>
+                            <li><a href="{{base_url('pengumuman')}}">Pengumuman</a></li>
+                            <li><a href="{{base_url('kerja_sama')}}">Kerja Sama</a></li>
+                            <li><a href="{{base_url('dosen')}}">Daftar Dosen</a></li>
                         </ul>
                     </div>
                 </div>

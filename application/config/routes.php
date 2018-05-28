@@ -50,13 +50,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'web';
-$path = trim($_SERVER['REQUEST_URI'], '/web');
-$toMap = array('hubungi_kami', 'berita','sejarah','visi_misi','fasilitas','pengumuman','kerja_sama','dosen','staff','publikasi','kurikulum');
+/**
+ * Remove the route in web only
+ */
+$path = explode('/',$_SERVER['REQUEST_URI']);
+$toMap = array('hubungi_kami','berita','sejarah','visi_misi','fasilitas','pengumuman','kerja_sama','dosen','publikasi','kurikulum');
 foreach ($toMap as $map) {
-    if (strpos($path, $map) === 0) {
+    if (strpos($path[1], $map) === 0) {
        $route[$map] = 'web/'.$map;
     }
 }
+
 $route['superuser'] = 'superuser';
 
 $route['404_override'] = '';

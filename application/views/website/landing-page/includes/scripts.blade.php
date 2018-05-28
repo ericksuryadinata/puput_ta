@@ -36,7 +36,6 @@ var mytheme_urls = {
 
 <script type="text/javascript" src="{{base_url('assets/website/js/revslider/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript" src="{{base_url('assets/website/js/revslider/jquery.themepunch.revolution.min.js')}}"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#staff').DataTable();
