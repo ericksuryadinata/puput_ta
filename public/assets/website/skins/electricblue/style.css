@@ -18,7 +18,7 @@
 
 #bbar-wrapper.type2.dark.color-bg, .slide-controls li.selected a, .slide-controls li.selected a:hover, .dt-sc-box-content:hover .dt-sc-button, .page_info h3 span .fa, .page_info h2 span .fa, .page_info.main-title h2 span:after, .dt-sc-pr-tb-col .dt-sc-buy-now .dt-sc-button { background: #405069; }
 
-#header-wrapper, .is-sticky #header-wrapper, #footer { background: #2a323e; }
+#header-wrapper, .is-sticky #header-wrapper, #footer { background: rgba(0, 51, 102, 1); }
 
 .pagination ul li a.active-page, .pagination ul li a:hover, #footer .widget .dt-sc-social-icons li { background: #445062; }
 

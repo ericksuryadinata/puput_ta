@@ -29,7 +29,7 @@
                         <div class="dt-sc-toggle-content">
                             <div class="block">
                                 Mata Kuliah yang diajarkan di Teknik Informatika Untag Surabaya
-                                <a class="dt-sc-button small ocean"  href="{{base_url('kurikulum')}}" target="_blank">Kurikulum</a>
+                                <a class="dt-sc-button small ocean"  href="{{route('akademik.kurikulum')}}" target="_blank">Kurikulum</a>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="dt-sc-toggle-content">
                             <div class="block">
                                 Hasil Karya Mahasiswa & Dosen Teknik Informatika Untag Surabaya
-                                <a class="dt-sc-button small ocean" href="#" target="_blank">Hasil Karya</a>
+                                <a class="dt-sc-button small ocean" href="{{route('hasil-karya.index')}}" target="_blank">Hasil Karya</a>
                             </div>
                         </div>
                     </div>
@@ -81,10 +81,10 @@
                         <ul class="dt-sc-fancy-list  electricblue  arrow" id="ul-remove-margin">
                             <li><a href="http://untag-sby.ac.id">Home Site</a></li>
                             <li><a href="{{base_url('superuser')}}">Login</a></li>
-                            <li><a href="{{base_url('berita')}}">Berita</a></li>
-                            <li><a href="{{base_url('pengumuman')}}">Pengumuman</a></li>
-                            <li><a href="{{base_url('kerja_sama')}}">Kerja Sama</a></li>
-                            <li><a href="{{base_url('dosen')}}">Daftar Dosen</a></li>
+                            <li><a href="{{route('berita.index')}}">Berita</a></li>
+                            <li><a href="{{route('pengumuman.index')}}">Pengumuman</a></li>
+                            <li><a href="{{route('kerja-sama.index')}}">Kerja Sama</a></li>
+                            <li><a href="{{route('dosen.index')}}">Daftar Dosen</a></li>
                         </ul>
                     </div>
                 </div>

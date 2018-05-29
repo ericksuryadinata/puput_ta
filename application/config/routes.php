@@ -49,19 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'web';
-/**
- * Remove the route in web only
- */
-$path = explode('/',$_SERVER['REQUEST_URI']);
-$toMap = array('hubungi_kami','berita','sejarah','visi_misi','fasilitas','pengumuman','kerja_sama','dosen','publikasi','kurikulum');
-foreach ($toMap as $map) {
-    if (strpos($path[1], $map) === 0) {
-       $route[$map] = 'web/'.$map;
-    }
-}
+$route = Luthier\Route::getRoutes();
 
-$route['superuser'] = 'superuser';
-
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = TRUE;
+// $route['default_controller'] = 'web';
+// $route['404_override'] = '';
+// $route['translate_uri_dashes'] = TRUE;

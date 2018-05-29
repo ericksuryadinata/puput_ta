@@ -11,3 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/user_guide/general/hooks.html
 |
 */
+
+/**
+ * Lets call luthier for make a better routing
+ */
+$hook = Luthier\Hook::getHooks();
