@@ -80,7 +80,7 @@
                     <div class="dt-sc-titled-box-content">
                         <ul class="dt-sc-fancy-list  electricblue  arrow" id="ul-remove-margin">
                             <li><a href="http://untag-sby.ac.id">Home Site</a></li>
-                            <li><a href="{{base_url('superuser')}}">Login</a></li>
+                            <li><a href="{{route('admin.auth.index')}}">Login</a></li>
                             <li><a href="{{route('berita.index')}}">Berita</a></li>
                             <li><a href="{{route('pengumuman.index')}}">Pengumuman</a></li>
                             <li><a href="{{route('kerja-sama.index')}}">Kerja Sama</a></li>

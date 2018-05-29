@@ -21,7 +21,7 @@
 /**
  * Route untuk website utama
  */
-Route::group('/',['namespace' => 'landing-page'],function(){
+Route::group('/',['namespace' => 'Website'],function(){
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('sejarah','ProfilController@sejarah')->name('profil.sejarah');
     Route::get('visi-misi','ProfilController@visi_misi')->name('profil.visi-misi');
@@ -43,6 +43,9 @@ Route::group('/',['namespace' => 'landing-page'],function(){
     
 });
 
+/**
+ * Kita masukkan juga admin.php, tapi filenya dibedakan biar enak pengaturannya
+ */
 require __DIR__ . '/admin.php';
 
 Route::set('404_override', function(){
