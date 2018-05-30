@@ -4,7 +4,7 @@
     @include('admin.includes.meta-data')
     @include('admin.includes.styles')
 </head>
-<body>
+<body class="theme-indigo">
     @include('admin.includes.content')
     @include('admin.includes.scripts')
 </body>
