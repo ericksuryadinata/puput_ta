@@ -20,3 +20,4 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="{{base_url('assets/admin/ico/ms-icon-144x144.png')}}">
 <meta name="theme-color" content="#ffffff">
+<title>@yield('title')</title>

@@ -19,7 +19,26 @@
  */
 
 /**
- * Route untuk website utama
+ * Routing untuk website
+ * ------------------------------------------------------------------------
+ * Sedikit penjelasan tentang penulisan routing
+ * ------------------------------------------------------------------------
+ * 
+ * Contoh:
+ * 
+ * Route::group('/', ['namespace' => 'Website'], function(){
+ * 
+ * Penjelasan
+ * 1. routing dengan menggunakan prefix /, di url jadi localhost/
+ * 2. namespace menunjukkan nama folder yang ada di controller
+ * 
+ * Route::get('/', 'HomeController@index')->name('home.index');
+ * 
+ * prefix / menuju ke HomeController.php dengan penamaan home.index
+ * home.index ini digunakan untuk memanggil via route()
+ * jadi nanti pemanggilan dengan route('home.index')
+ * ini menunjukkan HomeController bagian index
+ * 
  */
 Route::group('/',['namespace' => 'Website'],function(){
     Route::get('/', 'HomeController@index')->name('home.index');

@@ -3,9 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AuthController extends CI_Controller {
 
-	public function index()
-	{
-		echo $this->page->tampil('admin.auth.index');
+	public function index(){
+		$this->session->set_userdata(array('login'=>true));
+		// echo $this->page->tampil('admin.auth.index');
+		redirect(route('admin.auth.login'));
 	}
 
 	public function auth(){

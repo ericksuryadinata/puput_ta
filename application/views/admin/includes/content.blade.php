@@ -1,4 +1,4 @@
 @include('admin.includes.navbar')
-@include('admin.includes.left-sidebar')
+@include('admin.includes.sidebar')
 
 @yield('content')

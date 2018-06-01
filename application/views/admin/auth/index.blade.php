@@ -97,13 +97,8 @@
 
     <!-- Custom Js -->
     <script src="{{base_url('assets/admin/js/admin.js')}}"></script>
-    <script src="{{base_url('assets/adminjs/pages/examples/sign-in.js')}}"></script>
+    <script src="{{base_url('assets/admin/js/pages/examples/sign-in.js')}}"></script>
     <script>
-        
-        $(function () {
-            // TODO
-            // create front end validation
-        });
 
     </script>
 </body>
