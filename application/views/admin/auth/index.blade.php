@@ -24,7 +24,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{base_url('assets/admin/ico/ms-icon-144x144.png')}}">
     <meta name="theme-color" content="#ffffff">
-
+    <title>Login Page</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -51,14 +51,18 @@
         </div>
         <div class="card">
             <div class="body">
-                <form action="" id="sign_in" method="POST">
+                <?php echo form_open(route('admin.auth.login'),'id="sign_in"')?>
+                    <div class="alert bg-pink alert-dismissible" role="alert" {{isset($hidden) ? $hidden : 'hidden'}}>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{isset($message) ? $message : validation_errors()}}
+                    </div>
                     <div class="msg">Silakan masuk untuk mengakses Admin Panel</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="username" placeholder="Email" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -78,7 +82,7 @@
                             <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
                         </div>
                     </div>
-                </form>
+                <?php echo form_close()?>
             </div>
         </div>
     </div>
@@ -98,9 +102,6 @@
     <!-- Custom Js -->
     <script src="{{base_url('assets/admin/js/admin.js')}}"></script>
     <script src="{{base_url('assets/admin/js/pages/examples/sign-in.js')}}"></script>
-    <script>
-
-    </script>
 </body>
 
 </html>

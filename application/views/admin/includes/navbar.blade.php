@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="pull-right">
-                    <a href="javascript:void(0);" class="dropdown-toggle">
+                    <a href="{{route('admin.auth.logout')}}" class="dropdown-toggle">
                         <i class="material-icons">exit_to_app</i>
                     </a>
                 </li>
