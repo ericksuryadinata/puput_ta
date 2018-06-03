@@ -8,17 +8,21 @@ class ProfilController extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('ProfilModel','profil');
+		$this->surename = $this->session->userdata('surename');
+		$this->email = $this->session->userdata('email');
+		$this->page->sebar('ctrl',$this);
 	}
+	
 	/** Sejarah Section */
 	public function sejarah(){
 		$data['active_profil'] = 'active';
 		$data['active_profil_sejarah'] = 'active';
-		$data['sejarah'] = $this->profil->loadData('sejarah')->result();
+		$data['sejarah'] = $this->profil->loadDataSection('sejarah')->result();
 		echo $this->page->tampil('admin.profil.sejarah',$data);
 	}
 	
 	public function uploadSejarah(){
-		$sejarah = $this->profil->loadData('sejarah')->result();
+		$sejarah = $this->profil->loadDataSection('sejarah')->result();
 
 		if(count($sejarah) == 0){
 			$data = array(
@@ -50,12 +54,12 @@ class ProfilController extends CI_Controller {
   	public function visi_misi(){
 		$data['active_profil'] = 'active';
 		$data['active_profil_visi_misi'] = 'active';
-		$data['visi_misi'] = $this->profil->loadData('visi-misi')->result();
+		$data['visi_misi'] = $this->profil->loadDataSection('visi-misi')->result();
 		echo $this->page->tampil('admin.profil.visi-misi',$data);
 	}
 
 	public function uploadVisiMisi(){
-		$visimisi = $this->profil->loadData('visi-misi')->result();
+		$visimisi = $this->profil->loadDataSection('visi-misi')->result();
 
 		if(count($visimisi) == 0){
 			$data = array(
@@ -87,11 +91,12 @@ class ProfilController extends CI_Controller {
   	public function fasilitas(){
 		$data['active_profil'] = 'active';
 		$data['active_profil_fasilitas'] = 'active';
+		$data['fasilitas'] = $this->profil->loadDataSection('fasilitas')->result();
 		echo $this->page->tampil('admin.profil.fasilitas',$data);
 	}
 
 	public function uploadFasilitas(){
-		$fasilitas = $this->profil->loadData('fasilitas')->result();
+		$fasilitas = $this->profil->loadDataSection('fasilitas')->result();
 
 		if(count($fasilitas) == 0){
 			$data = array(
@@ -114,7 +119,7 @@ class ProfilController extends CI_Controller {
 			$this->profil->updateData($data,$where);
 		}
 		
-		redirect(route('admin.profil.visi-misi'));
+		redirect(route('admin.profil.fasilitas'));
 	}
 
 	/** End Fasilitas Section */

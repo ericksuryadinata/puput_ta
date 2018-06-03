@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ProfilModel extends CI_Model{
+class AkademikModel extends CI_Model{
 
-    protected $table = 'profil';
+    protected $table = 'post';
     
     public function saveData($data){
         $this->db->insert($this->table, $data);

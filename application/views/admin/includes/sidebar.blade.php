@@ -3,8 +3,8 @@
     <aside id="leftsidebar" class="sidebar">
         <div class="user-info" style="height:50px;padding:5px 5px 5px 15px;">
             <div class="info-container" style="top:1px">
-                <div class="name">John Doe</div>
-                <div class="email">john.doe@example.com</div>                
+                <div class="name">{{$ctrl->surename}}</div>
+                <div class="email">{{$ctrl->email}}</div>
             </div>
         </div>
         <!-- Menu -->
@@ -69,15 +69,15 @@
                         <span>Kerja Sama</span>
                     </a>
                 </li>
-                <li class="{{isset($active_daftar_dosen) ? $active_daftar_dosen : ''}}">
+                <li class="{{isset($active_dosen) ? $active_dosen : ''}}">
                     <a href="{{route('admin.dosen.index')}}">
                         <i class="material-icons">group</i>
                         <span>Daftar Dosen</span>
                     </a>
                 </li>
                 <li class="{{isset($active_settings) ? $active_settings : ''}}">
-                    <a href="{{route('admin.dosen.index')}}">
-                        <i class="material-icons">group</i>
+                    <a href="{{route('admin.settings.index')}}">
+                        <i class="material-icons">settings</i>
                         <span>Settings</span>
                     </a>
                 </li>

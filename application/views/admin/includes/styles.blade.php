@@ -11,6 +11,9 @@
 <!-- Animation Css -->
 <link href="{{base_url('assets/admin/plugins/animate-css/animate.min.css')}}" rel="stylesheet" />
 
+<!-- JQuery DataTable Css -->
+<link href="{{base_url('assets/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
+
 <!-- Custom Css -->
 <link href="{{base_url('assets/admin/css/style.min.css')}}" rel="stylesheet">
 

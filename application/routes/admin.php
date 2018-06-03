@@ -44,17 +44,22 @@ Route::group('super-admin',['namespace' => 'Admin'], function(){
          * Karena masih bug, maka penulisannya masih begini dulu :D
          */
         Route::group('/',['namespace' => 'Profil'],function(){
+            //sejarah
             Route::get('sejarah','ProfilController@sejarah',['prefix' => 'profil'])->name('admin.profil.sejarah');
-            ROute::post('sejarah/upload','ProfilController@uploadSejarah',['prefix' => 'profil'])->name('admin.profil.sejarah.upload');
+            Route::post('sejarah/upload','ProfilController@uploadSejarah',['prefix' => 'profil'])->name('admin.profil.sejarah.upload');
             
+            //visi misi
             Route::get('visi-misi','ProfilController@visi_misi',['prefix' => 'profil'])->name('admin.profil.visi-misi');
-            ROute::post('visi-misi/upload','ProfilController@uploadVisiMisi',['prefix' => 'profil'])->name('admin.profil.visi-misi.upload');
+            Route::post('visi-misi/upload','ProfilController@uploadVisiMisi',['prefix' => 'profil'])->name('admin.profil.visi-misi.upload');
             
+            //fasilitas
             Route::get('fasilitas','ProfilController@fasilitas',['prefix' => 'profil'])->name('admin.profil.fasilitas');
+            Route::post('fasilitas/upload','ProfilController@uploadFasilitas',['prefix' => 'profil'])->name('admin.profil.fasilitas.upload');
         });
 
         Route::group('/', ['namespace' => 'Akademik'], function(){
             Route::get('kurikulum','AkademikController@kurikulum',['prefix' => 'akademik'])->name('admin.akademik.kurikulum');
+            Route::post('kurikulum/upload','AkademikController@uploadKurikulum',['prefix' => 'akademik'])->name('admin.akademik.kurikulum.upload');
         });
 
         Route::group('/', ['namespace' => 'Berita'], function(){
@@ -79,6 +84,7 @@ Route::group('super-admin',['namespace' => 'Admin'], function(){
 
         Route::group('/', ['namespace' => 'Settings'], function(){
             Route::get('/','SettingsController@index',['prefix' => 'settings'])->name('admin.settings.index');
+            Route::post('save','SettingsController@save',['prefix' => 'settings'])->name('admin.settings.save');
         });
 
     });

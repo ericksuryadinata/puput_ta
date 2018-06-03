@@ -33,9 +33,15 @@
 <!-- Sparkline Chart Plugin Js -->
 <script src="{{base_url('assets/admin/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
 
+<!-- Validation Plugin Js -->
+<script src="{{base_url('assets/admin/plugins/jquery-validation/jquery.validate.js')}}"></script>
+
+<!-- Jquery DataTable Plugin Js -->
+<script src="{{base_url('assets/admin/plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
+<script src="{{base_url('assets/admin/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
+
 <!-- Custom Js -->
 <script src="{{base_url('assets/admin/js/admin.js')}}"></script>
-<script src="{{base_url('assets/admin/js/pages/index.js')}}"></script>
 
 <!-- Demo Js -->
 <script src="{{base_url('assets/admin/js/demo.js')}}"></script>

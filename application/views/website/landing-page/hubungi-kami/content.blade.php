@@ -23,17 +23,17 @@
             </form>
         </div>
         <div class="dt-sc-one-third column">
-            <h2 class="hr-border-title"><span>kontak</span></h2>
+            <h2 class="hr-border-title"><span>Kontak</span></h2>
             <div class="contact-info">
                 <div class="textwidget">
-                    <p>Teknik Informatika
-                    <br>Fakultas Teknik
-                    <br>Universitas 17 Agustus 1945 Surabaya
-                    <br>Jl. Semolowaru 45 Surabaya</p>
+                    <p>{{isset($settings) ? ucwords($settings['nama_jurusan']) : ''}}
+                    <br>{{isset($settings) ? ucwords($settings['nama_fakultas']) : ''}}
+                    <br>{{isset($settings) ? ucwords($settings['nama_universitas']) : ''}}
+                    <br>{{isset($settings) ? ucwords($settings['alamat_universitas']) : ''}}</p>
                 </div>
-                <p> <i class="fa fa-phone"> </i> <span>Phone</span> :  031-5921516 </p>
-                <p> <i class="fa fa-print"> </i> <span>Fax</span> :  031-5921516 </p>
-                <p> <i class="fa fa-envelope"> </i> <span>Email</span> : ft@untag-sby.ac.id </p>
+                <p> <i class="fa fa-phone"> </i> <span>Phone</span> :  {{isset($settings) ? ucwords($settings['telepon']) : ''}}</p>
+                <p> <i class="fa fa-print"> </i> <span>Fax</span> :  {{isset($settings) ? ucwords($settings['fax']) : ''}}</p>
+                <p> <i class="fa fa-envelope"> </i> <span>Email</span> : {{isset($settings) ? $settings['email'] : ''}}</p>
             </div>
             <hr>
             <div id="peta"></div>
@@ -45,7 +45,14 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{ getenv('GMAPS_API_KEY') }}"></script>
 <script>
     function initialize() {
-        var posisi = new google.maps.LatLng(-7.298784, 112.766861);
+        let posisi;
+        let database = '<?php echo isset($settings) ? $settings['lokasi'] : ''?>';
+        if(database === ''){
+            posisi = new google.maps.LatLng(-7.298784, 112.766861);
+        }else{
+            let databaseSplit = database.split(' ');
+            posisi = new google.maps.LatLng(parseFloat(databaseSplit[0]), parseFloat(databaseSplit[1]));
+        }
         var pengaturan = {
             zoom: 17,
             center: posisi
