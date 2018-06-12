@@ -1,6 +1,6 @@
-<div class='with-right-sidebar' id='primary'> 
+<div class='with-right-sidebar' id='primary'>
     <h2>Staff Site Teknik Informatika</h2><hr>
-    <table id="dataTables" class="display" cellspacing="0" width="100%">
+    <table id="dosen-list" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>NO.</th>
@@ -11,17 +11,6 @@
             </tr>
         </thead>
         <tbody>
-        @for ($i = 0; $i < 59; $i++)
-            <tr>
-                <td>{{($i+1)}}</td>
-                <td>Some person name</td>
-                <td>Some person job</td>
-                <td>example@email.com</td>
-                <td>
-                    <a href="#" title=""><img src="{{base_url('assets/website/images/ico-search.png')}}"></a>
-                </td>
-            </tr>
-        @endfor
         </tbody>
         <tfoot>
             <tr>
@@ -35,13 +24,25 @@
     </table>
 </div>
 @section('additional-styles')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 @endsection
 @section('additional-scripts')
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#dataTables').DataTable();
+            $('#dosen-list').DataTable({
+                serverSide: true,
+                responsive:true,
+                order: [],
+                lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                ajax: {
+                    url: '{{route("dosen.datatables")}}',
+                    type: 'GET',
+                    data:{'<?php echo $csrf["name"]?>':'<?php echo $csrf["token"]?>'}
+                },
+            });
+
         });
     </script>
 @endsection

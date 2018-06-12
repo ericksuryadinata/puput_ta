@@ -37,11 +37,6 @@ var mytheme_urls = {
 <script type="text/javascript" src="{{base_url('assets/website/js/revslider/jquery.themepunch.tools.min.js')}}"></script>
 <script type="text/javascript" src="{{base_url('assets/website/js/revslider/jquery.themepunch.revolution.min.js')}}"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    $('#staff').DataTable();
-});
-</script>
-<script type="text/javascript">
 
     /******************************************
         -	PREPARE PLACEHOLDER FOR SLIDER	-

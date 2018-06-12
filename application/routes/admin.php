@@ -28,7 +28,7 @@
  * 
  */
 
-Route::group('super-admin',['namespace' => 'Admin'], function(){
+Route::group('super-admin',['namespace' => 'Admin'],function(){
 
     Route::group('gate',['namespace' => 'Auth'],function(){
         Route::get('in','AuthController@index')->name('admin.auth.index');
@@ -80,12 +80,18 @@ Route::group('super-admin',['namespace' => 'Admin'], function(){
 
         Route::group('/', ['namespace' => 'Dosen'], function(){
             Route::get('/','DosenController@index',['prefix' => 'dosen'])->name('admin.dosen.index');
+            Route::get('tambah','DosenController@create',['prefix' => 'dosen'])->name('admin.dosen.create');
+            Route::get('datatable','DosenController@datatable',['prefix' => 'dosen'])->name('admin.dosen.datatable');
+            Route::get('detail','DosenController@detail',['prefix' => 'dosen'])->name('admin.dosen.detail');
+            Route::post('save','DosenController@save',['prefix' => 'dosen'])->name('admin.dosen.save');
+            Route::get('edit/{id}','DosenController@edit',['prefix' => 'dosen'])->name('admin.dosen.edit');
+            Route::post('update','DosenController@update',['prefix' => 'dosen'])->name('admin.dosen.update');
+
         });
 
         Route::group('/', ['namespace' => 'Settings'], function(){
             Route::get('/','SettingsController@index',['prefix' => 'settings'])->name('admin.settings.index');
             Route::post('save','SettingsController@save',['prefix' => 'settings'])->name('admin.settings.save');
         });
-
     });
 });

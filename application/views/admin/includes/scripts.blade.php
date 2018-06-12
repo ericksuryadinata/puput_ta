@@ -13,6 +13,15 @@
 <!-- Waves Effect Plugin Js -->
 <script src="{{base_url('assets/admin/plugins/node-waves/waves.min.js')}}"></script>
 
+<!-- Autosize Plugin Js -->
+<script src="{{base_url('assets/admin/plugins/autosize/autosize.js')}}"></script>
+
+<!-- Moment Plugin Js -->
+<script src="{{base_url('assets/admin/plugins/momentjs/moment.js')}}"></script>
+
+<!-- Bootstrap Material Datetime Picker Plugin Js -->
+<script src="{{base_url('assets/admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
+
 <!-- Jquery CountTo Plugin Js -->
 <script src="{{base_url('assets/admin/plugins/jquery-countto/jquery.countTo.js')}}"></script>
 

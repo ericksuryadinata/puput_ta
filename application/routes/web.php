@@ -47,14 +47,17 @@ Route::group('/',['namespace' => 'Website'],function(){
     Route::get('fasilitas','ProfilController@fasilitas')->name('profil.fasilitas');
     Route::get('kurikulum','AkademikController@kurikulum')->name('akademik.kurikulum');
     Route::get('hubungi-kami','HomeController@hubungi_kami')->name('home.hubungi-kami');
-    Route::get('dosen','DosenController@index')->name('dosen.index');
+    
+    Route::get('/','DosenController@index',['prefix' => 'dosen'])->name('dosen.index');
+    Route::get('datatables','DosenController@datatables',['prefix' => 'dosen'])->name('dosen.datatables');
+    Route::get('dosen/detail/{id}','DosenController@detail',['prefix' => 'dosen'])->name('dosen.detail');
     
     
     Route::get('publikasi','PublikasiController@index')->name('publikasi.index');
     
     Route::get('berita','BeritaController@index')->name('berita.index');
     
-    Route::get('pengumuan','PengumumanController@index')->name('pengumuman.index');
+    Route::get('pengumuman','PengumumanController@index')->name('pengumuman.index');
     
     Route::get('hasil-karya','HasilKaryaController@index')->name('hasil-karya.index');
 

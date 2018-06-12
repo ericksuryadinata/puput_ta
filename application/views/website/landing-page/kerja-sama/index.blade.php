@@ -7,8 +7,9 @@
     <section class="content-main">
         <div class="container">
             @include('website.landing-page.kerja-sama.content')
-            @include('website.landing-page.includes.sidebar-kanan')
+            @include('website.landing-page.includes.sidebar-kanan-news')
         </div>
     </section>
+    @include('website.landing-page.includes.global-partner')
 </div>
 @stop
