@@ -40,7 +40,7 @@
  * ini menunjukkan HomeController bagian index
  * 
  */
-Route::group('/',['namespace' => 'Website'],function(){
+Route::group('/',['namespace' => 'Website', 'middleware' => ['WebsiteMiddleware']],function(){
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('sejarah','ProfilController@sejarah')->name('profil.sejarah');
     Route::get('visi-misi','ProfilController@visi_misi')->name('profil.visi-misi');

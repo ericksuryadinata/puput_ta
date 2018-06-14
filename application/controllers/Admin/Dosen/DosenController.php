@@ -42,6 +42,21 @@ class DosenController extends CI_Controller {
 		echo $this->page->tampil('admin.dosen.edit',$data);
 	}
 
+	public function delete(){
+		if(!$this->input->is_ajax_request()){
+            show_404();
+        }
+        $id = $this->input->post('id');
+        $id_dosen = array('id' => $id);
+        $dosen = $this->dosen->search($id_dosen)->first_row();
+        remove_file($this->uploadPath().$dosen->nama_foto);
+        if($this->dosen->delete($id_dosen) != false){
+            echo json_encode($this->success('delete',array('pesan' => 'Berhasil hapus data')));
+        }else{
+            echo json_encode($this->error('delete',array('pesan' => 'Gagal hapus data')));
+        }
+	}
+
 	public function save(){
 		$nidn = $this->security->xss_clean($this->input->post('nidn'));
 		$nama_dosen = $this->security->xss_clean($this->input->post('nama_dosen'));
@@ -115,6 +130,11 @@ class DosenController extends CI_Controller {
 		$id = $this->security->xss_clean($this->input->post('id'));
 		$gambar = $this->security->xss_clean($this->input->post('fotodosen'));
 
+		// ambil nama gambar yang disimpan buat didelete nanti
+		$id_dosen = array('id' => $id);
+		$dosen = $this->dosen->search($id_dosen)->first_row();
+		$dosen_foto = $dosen->nama_foto;
+
 		$filename = 'DOSEN_'.seo($nama_dosen).'_'.date('Ymdhis');
 		$this->upload->initialize($this->configUpload($filename));
 
@@ -153,15 +173,20 @@ class DosenController extends CI_Controller {
 
 		$where = array('id' => $id);
 		if($this->dosen->update($data,$where)){
+			remove_file($this->uploadPath().$dosen_foto);
 			$this->session->set_flashdata($this->success('update',array('pesan' => 'Berhasil Update Data')));
 			redirect(route('admin.dosen.index'));
 		}else{
+			remove_file($this->uploadPath().$gambar);
 			$this->session->set_flashdata($this->error('update',array('pesan' => 'Gagal Update Data')));
 			redirect(route('admin.dosen.index'));
 		}
 	}
 
 	public function datatable(){
+		if(!$this->input->is_ajax_request()){
+            show_404();
+        }
 		$list = $this->dosen->get_data();
 		$data = array();
 		$no = $_GET['start'];
@@ -173,7 +198,9 @@ class DosenController extends CI_Controller {
 			$row[] = $dosen->nama;
 			$row[] = $dosen->posisi;
 			$row[] = $dosen->email;
-			$row[] = '<button type="button" class="btn bg-light-green waves-effect detail" data-id="'.$dosen->id.'">Detail</button> <a href="'.route("admin.dosen.edit",['id'=>$dosen->id]).'" class="btn bg-indigo waves-effect">Edit</a>';
+			$row[] = '<button type="button" class="btn bg-light-green waves-effect detail" data-id="'.$dosen->id.'">Detail</button> 
+			<a href="'.route("admin.dosen.edit",['id'=>$dosen->id]).'" class="btn bg-indigo waves-effect">Edit</a> 
+			<button type="button" class="btn bg-red waves-effect hapus" data-id="'.$dosen->id.'">Hapus</button>';
 			$data[] = $row;
 		}
 
@@ -228,7 +255,7 @@ class DosenController extends CI_Controller {
 	}
 
 	private function configUpload($filename){
-		$config['upload_path'] = 'uploads/images/dosen/'; //path folder
+		$config['upload_path'] = $this->uploadPath(); //path folder
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 		$config['file_name'] = $filename;
 		return $config;
@@ -236,11 +263,15 @@ class DosenController extends CI_Controller {
 
 	private function configResize($gbr){
 		$config['image_library']='gd2';
-		$config['source_image']= 'uploads/images/dosen/'.$gbr['file_name'];
+		$config['source_image']= $this->uploadPath().$gbr['file_name'];
 		$config['maintain_ratio']= TRUE;
 		$config['width']= 275;
 		$config['height']= 275;
-		$config['new_image']= 'uploads/images/dosen/'.$gbr['file_name'];
+		$config['new_image']= $this->uploadPath().$gbr['file_name'];
 		return $config;
+	}
+
+	private function uploadPath(){
+		return 'uploads/images/dosen/';
 	}
 }

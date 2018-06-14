@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class DosenModel extends CI_Model{
+class LinkPartnerModel extends CI_Model{
 
-    private $table = 'dosen';
-	private $column_order = array(null, 'nidn','nama','posisi','email');
-	private $column_search = array('nidn','nama','posisi','email');
+    private $table = 'partner';
+	private $column_order = array(null, 'partner_nama','partner_link','partner_gambar','partner_aktif');
+	private $column_search = array('partner_nama','partner_link','partner_gambar','partner_aktif');
     private $order_by = array('id'=>'asc');
     
     private function _get(){
@@ -65,11 +65,16 @@ class DosenModel extends CI_Model{
 	public function search($id){
 		$this->db->where($id);
 		return $this->db->get($this->table);
-	}
-
-	public function delete($id){
+    }
+    
+    public function delete($id){
         $this->db->where($id);
         return $this->db->delete($this->table);
-    }
+	}
+	
+	public function aktif(){
+		$this->db->where('partner_aktif',1);
+		return $this->db->get($this->table);
+	}
 
 }

@@ -2,37 +2,35 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use Carbon\Carbon;
-
-class BeritaController extends CI_Controller {
+class KategoriBeritaController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
 		$this->surename = $this->session->userdata('surename');
         $this->email = $this->session->userdata('email');
-        $this->load->model(array('PostBeritaModel'=>'postberita','KategoriBeritaModel'=>'kategoriberita'));
+        $this->load->model('KategoriBeritaModel','kategoriberita');
 		$this->page->sebar('ctrl',$this);
 	}
 	
 	public function index(){
         $data['csrf'] = $this->getCsrf();
 		$data['active_berita'] = 'active';
-		$data['active_berita_post'] = 'active';
-		echo $this->page->tampil('admin.berita.post.index',$data);
+		$data['active_berita_kategori'] = 'active';
+		echo $this->page->tampil('admin.berita.kategori.index',$data);
     }
 
     public function create(){
 		$data['active_berita'] = 'active';
-		$data['active_berita_post'] = 'active';
-		$data['kategori'] = $this->kategoriberita->all()->result();
-		echo $this->page->tampil('admin.berita.post.create',$data);
+		$data['active_berita_kategori'] = 'active';
+		echo $this->page->tampil('admin.berita.kategori.create',$data);
     }
 
     public function edit($id){
-        $id_post = array('id' => $id);
+        $id_kategori = array('id' => $id);
         $data['active_berita'] = 'active';
-        $data['active_berita_post'] = 'active';
-		$data['post'] = $this->postberita->search($id_post)->first_row();
-		echo $this->page->tampil('admin.berita.post.edit',$data);
+        $data['active_berita_kategori'] = 'active';
+		$data['kategori'] = $this->kategoriberita->search($id_kategori)->first_row();
+		echo $this->page->tampil('admin.berita.kategori.edit',$data);
     }
 
     public function delete(){
@@ -40,8 +38,8 @@ class BeritaController extends CI_Controller {
             show_404();
         }
         $id = $this->input->post('id');
-        $id_post = array('id' => $id);
-        if($this->postberita->delete($id_post) != false){
+        $id_kategori = array('id' => $id);
+        if($this->kategoriberita->delete($id_kategori) != false){
             echo json_encode($this->success('delete',array('pesan' => 'Berhasil hapus data')));
         }else{
             echo json_encode($this->error('delete',array('pesan' => 'Gagal hapus data')));
@@ -49,42 +47,42 @@ class BeritaController extends CI_Controller {
     }
 
     public function save(){
-        $nama_post = $this->input->post('nama_post');
+        $nama_kategori = $this->input->post('nama_kategori');
 
         $data = array(
-            'nama_post' => $nama_post,
+            'nama_kategori' => $nama_kategori,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'created_by' => $this->session->userdata('userid'),
             'updated_by' => $this->session->userdata('userid'),
         );
 
-        if($this->postberita->save($data)){
+        if($this->kategoriberita->save($data)){
 			$this->session->set_flashdata($this->success('save',array('pesan' => 'Berhasil Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.berita.kategori.index'));
 		}else{
 			$this->session->set_flashdata($this->error('save',array('pesan' => 'Gagal Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.berita.kategori.index'));
 		}
     }
 
     public function update(){
-        $nama_post = $this->input->post('nama_post');
+        $nama_kategori = $this->input->post('nama_kategori');
         $id = $this->input->post('id');
-        $id_post = array('id' => $id);
+        $id_kategori = array('id' => $id);
         
         $data = array(
-            'nama_post' => $nama_post,
+            'nama_kategori' => $nama_kategori,
             'updated_at' => Carbon::now(),
             'updated_by' => $this->session->userdata('userid'),
         );
 
-        if($this->postberita->update($data,$id_post)){
+        if($this->kategoriberita->update($data,$id_kategori)){
 			$this->session->set_flashdata($this->success('save',array('pesan' => 'Berhasil Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.berita.kategori.index'));
 		}else{
 			$this->session->set_flashdata($this->error('save',array('pesan' => 'Gagal Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.berita.kategori.index'));
 		}
     }
 
@@ -92,22 +90,22 @@ class BeritaController extends CI_Controller {
 		if(!$this->input->is_ajax_request()){
             show_404();
         }
-		$list = $this->postberita->get_data();
+		$list = $this->kategoriberita->get_data();
 		$data = array();
 		$no = $_GET['start'];
-		foreach ($list as $postberita) {
+		foreach ($list as $kategoriberita) {
 			$no++;
 			$row = array();
 			$row[] = $no;
-			$row[] = $postberita->nama_post;
-			$row[] = '<a href="'.route("admin.berita.post.edit",['id'=>$postberita->id]).'" class="btn bg-indigo waves-effect">Edit</a> 
-			<button type="button" class="btn bg-red waves-effect hapus" data-id="'.$postberita->id.'">Hapus</button>';
+			$row[] = $kategoriberita->nama_kategori;
+			$row[] = '<a href="'.route("admin.berita.kategori.edit",['id'=>$kategoriberita->id]).'" class="btn bg-indigo waves-effect">Edit</a> 
+			<button type="button" class="btn bg-red waves-effect hapus" data-id="'.$kategoriberita->id.'">Hapus</button>';
 			$data[] = $row;
 		}
 
 		$output = array('draw' => $_GET['draw'],
-						'recordsTotal' => $this->postberita->count_all(),
-						'recordsFiltered' => $this->postberita->count_filtered(),
+						'recordsTotal' => $this->kategoriberita->count_all(),
+						'recordsFiltered' => $this->kategoriberita->count_filtered(),
 						'data' => $data
 						);
 		echo json_encode($output);

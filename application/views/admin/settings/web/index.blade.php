@@ -14,7 +14,7 @@
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
-                <?php echo form_open(route('admin.settings.save'),'id="form_validation" novalidate="novalidate"')?>
+                <?php echo form_open(route('admin.settings.web.save'),'id="form_validation" novalidate="novalidate"')?>
                     <div class="header">
                         <h2>WEBSITE SETTINGS</h2>
                         <br>

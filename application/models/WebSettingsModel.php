@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SettingsModel extends CI_Model{
+class WebSettingsModel extends CI_Model{
 
-    protected $table = 'web_settings';
+    private $table = 'web_settings';
     
     public function saveData($data){
         $this->db->insert($this->table, $data);

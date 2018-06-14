@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AkademikModel extends CI_Model{
 
-    protected $table = 'post';
+    private $table = 'post';
     
     public function saveData($data){
         $this->db->insert($this->table, $data);

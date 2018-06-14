@@ -46,10 +46,18 @@
                     </ul>
                 </li>
                 <li class="{{isset($active_berita) ? $active_berita : ''}}">
-                    <a href="{{route('admin.berita.index')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">chrome_reader_mode</i>
                         <span>Berita</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li class="{{isset($active_berita_post) ? $active_berita_post : ''}}">
+                            <a href="{{route('admin.berita.post.index')}}">Post Berita</a>
+                        </li>
+                        <li class="{{isset($active_berita_kategori) ? $active_berita_kategori : ''}}">
+                            <a href="{{route('admin.berita.kategori.index')}}">Kategori Berita</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="{{isset($active_pengumuman) ? $active_pengumuman : ''}}">
                     <a href="{{route('admin.pengumuman.index')}}">
@@ -76,10 +84,18 @@
                     </a>
                 </li>
                 <li class="{{isset($active_settings) ? $active_settings : ''}}">
-                    <a href="{{route('admin.settings.index')}}">
+                    <a href="javascript:void(0)" class="menu-toggle">
                         <i class="material-icons">settings</i>
                         <span>Settings</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li class="{{isset($active_settings_web) ? $active_settings_web : ''}}">
+                            <a href="{{route('admin.settings.web.index')}}">Web</a>
+                        </li>
+                        <li class="{{isset($active_settings_link) ? $active_settings_link : ''}}">
+                            <a href="{{route('admin.settings.link.index')}}">Link Partner</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

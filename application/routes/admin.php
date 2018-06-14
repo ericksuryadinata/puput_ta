@@ -42,6 +42,7 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
         
         /**
          * Karena masih bug, maka penulisannya masih begini dulu :D
+         * Sudah tak mention di luthiernya :D
          */
         Route::group('/',['namespace' => 'Profil'],function(){
             //sejarah
@@ -63,7 +64,21 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
         });
 
         Route::group('/', ['namespace' => 'Berita'], function(){
-            Route::get('/','BeritaController@index',['prefix' => 'berita'])->name('admin.berita.index');
+            Route::get('/','BeritaController@index',['prefix' => 'berita/post'])->name('admin.berita.post.index');
+            Route::get('tambah','BeritaController@create',['prefix' => 'berita/post'])->name('admin.berita.post.create');
+            Route::get('datatable','BeritaController@datatable',['prefix' => 'berita/post'])->name('admin.berita.post.datatable');
+            Route::post('save','BeritaController@save',['prefix' => 'berita/post'])->name('admin.berita.post.save');
+            Route::get('edit/{id}','BeritaController@edit',['prefix' => 'berita/post'])->name('admin.berita.post.edit');
+            Route::post('update','BeritaController@update',['prefix' => 'berita/post'])->name('admin.berita.post.update');
+            Route::post('delete','BeritaController@delete',['prefix' => 'berita/post'])->name('admin.berita.post.delete');
+
+            Route::get('/','KategoriBeritaController@index',['prefix' => 'berita/kategori'])->name('admin.berita.kategori.index');
+            Route::get('tambah','KategoriBeritaController@create',['prefix' => 'berita/kategori'])->name('admin.berita.kategori.create');
+            Route::get('datatable','KategoriBeritaController@datatable',['prefix' => 'berita/kategori'])->name('admin.berita.kategori.datatable');
+            Route::post('save','KategoriBeritaController@save',['prefix' => 'berita/kategori'])->name('admin.berita.kategori.save');
+            Route::get('edit/{id}','KategoriBeritaController@edit',['prefix' => 'berita/kategori'])->name('admin.berita.kategori.edit');
+            Route::post('update','KategoriBeritaController@update',['prefix' => 'berita/kategori'])->name('admin.berita.kategori.update');
+            Route::post('delete','KategoriBeritaController@delete',['prefix' => 'berita/kategori'])->name('admin.berita.kategori.delete');
         });
 
         Route::group('/', ['namespace' => 'Pengumuman'], function(){
@@ -86,12 +101,23 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
             Route::post('save','DosenController@save',['prefix' => 'dosen'])->name('admin.dosen.save');
             Route::get('edit/{id}','DosenController@edit',['prefix' => 'dosen'])->name('admin.dosen.edit');
             Route::post('update','DosenController@update',['prefix' => 'dosen'])->name('admin.dosen.update');
+            Route::post('delete','DosenController@delete',['prefix' => 'dosen'])->name('admin.dosen.delete');
 
         });
 
         Route::group('/', ['namespace' => 'Settings'], function(){
-            Route::get('/','SettingsController@index',['prefix' => 'settings'])->name('admin.settings.index');
-            Route::post('save','SettingsController@save',['prefix' => 'settings'])->name('admin.settings.save');
+
+            Route::get('/','WebSettingsController@index',['prefix' => 'settings/web'])->name('admin.settings.web.index');
+            Route::post('save','WebSettingsController@save',['prefix' => 'settings/web'])->name('admin.settings.web.save');
+
+            Route::get('/','LinkPartnerController@index',['prefix' => 'settings/link'])->name('admin.settings.link.index');
+            Route::get('tambah','LinkPartnerController@create',['prefix' => 'settings/link'])->name('admin.settings.link.create');
+            Route::get('datatable','LinkPartnerController@datatable',['prefix' => 'settings/link'])->name('admin.settings.link.datatable');
+            Route::post('save','LinkPartnerController@save',['prefix' => 'settings/link'])->name('admin.settings.link.save');
+            Route::get('edit/{id}','LinkPartnerController@edit',['prefix' => 'settings/link'])->name('admin.settings.link.edit');
+            Route::post('update','LinkPartnerController@update',['prefix' => 'settings/link'])->name('admin.settings.link.update');
+            Route::post('delete','LinkPartnerController@delete',['prefix' => 'settings/link'])->name('admin.settings.link.delete');
+            Route::post('aktifkan','LinkPartnerController@aktifkan',['prefix' => 'settings/link'])->name('admin.settings.link.aktifkan');
         });
     });
 });

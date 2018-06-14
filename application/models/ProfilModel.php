@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ProfilModel extends CI_Model{
 
-    protected $table = 'profil';
+    private $table = 'profil';
     
     public function saveData($data){
         $this->db->insert($this->table, $data);

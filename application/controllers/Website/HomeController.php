@@ -5,7 +5,7 @@ class HomeController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('SettingsModel','settings');
+		$this->load->model('WebSettingsModel','settings');
 	}
 
 	public function index(){

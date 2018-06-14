@@ -1,13 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use application\models\SettingsModel;
-
-class SettingsController extends CI_Controller {
+class WebSettingsController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('SettingsModel','settings');
+		$this->load->model('WebSettingsModel','settings');
 		$this->surename = $this->session->userdata('surename');
 		$this->email = $this->session->userdata('email');
 		$this->page->sebar('ctrl',$this);
@@ -15,13 +13,18 @@ class SettingsController extends CI_Controller {
 	
 	public function index(){
 		$data['active_settings'] = 'active';
+		$data['active_settings_web'] = 'active';
 		$settings = $this->settings->all()->result();
 		$hasil = [];
-		foreach($settings as $k => $v){
-			$hasil[$v->key] = $v->value;
+		if(count($settings) == 0){
+
+		}else{
+			foreach($settings as $k => $v){
+				$hasil[$v->key] = $v->value;
+			}
+			$data['settings'] = $hasil;
 		}
-		$data['settings'] = $hasil;
-		echo $this->page->tampil('admin.settings.index',$data);
+		echo $this->page->tampil('admin.settings.web.index',$data);
 	}
 
 	public function save(){
@@ -112,7 +115,7 @@ class SettingsController extends CI_Controller {
 			$this->settings->updateBatchData($data);
 		}
 
-		redirect(route('admin.settings.index'));
+		redirect(route('admin.settings.web.index'));
 		
 	}
 

@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class DosenModel extends CI_Model{
+class PostBeritaModel extends CI_Model{
 
-    private $table = 'dosen';
-	private $column_order = array(null, 'nidn','nama','posisi','email');
-	private $column_search = array('nidn','nama','posisi','email');
+    private $table = 'berita';
+    private $column_order = array(null, 'berita_gambar','berita_judul','berita_isi','berita_kategori_id','berita_views');
+	private $column_search = array('berita_gambar','berita_judul','berita_isi','berita_kategori_id','berita_views');
     private $order_by = array('id'=>'asc');
-    
+
     private function _get(){
 		$this->db->from($this->table);
 		$i=0;
