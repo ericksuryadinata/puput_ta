@@ -15,10 +15,14 @@ class HomeController extends CI_Controller {
 	public function hubungi_kami(){
 		$settings = $this->settings->all()->result();
 		$hasil = [];
-		foreach($settings as $k => $v){
-			$hasil[$v->key] = $v->value;
+		if(count($settings) == 0){
+
+		}else{
+			foreach($settings as $k => $v){
+				$hasil[$v->key] = $v->value;
+			}
+			$data['settings'] = $hasil;
 		}
-		$data['settings'] = $hasil;
 		echo $this->page->tampil('website.landing-page.hubungi-kami.index',$data);
 	}
 
