@@ -12,7 +12,8 @@ class HomeController extends CI_Controller {
 		echo $this->page->tampil('website.landing-page.home.index');
 	}
 
-	public function hubungi_kami(){
+	public function hubungi_kami(){ 
+		$data['dummy'] = 0;
 		$settings = $this->settings->all()->result();
 		$hasil = [];
 		if(count($settings) == 0){
