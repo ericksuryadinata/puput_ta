@@ -49,8 +49,8 @@ class DosenController extends CI_Controller {
         $id = $this->input->post('id');
         $id_dosen = array('id' => $id);
         $dosen = $this->dosen->search($id_dosen)->first_row();
-        remove_file($this->uploadPath().$dosen->nama_foto);
         if($this->dosen->delete($id_dosen) != false){
+			remove_file($this->uploadPath().$dosen->nama_foto);
             echo json_encode($this->success('delete',array('pesan' => 'Berhasil hapus data')));
         }else{
             echo json_encode($this->error('delete',array('pesan' => 'Gagal hapus data')));
@@ -171,8 +171,7 @@ class DosenController extends CI_Controller {
 			'updated_by' => $this->session->userdata('userid'),
 		);
 
-		$where = array('id' => $id);
-		if($this->dosen->update($data,$where)){
+		if($this->dosen->update($data,$id_dosen)){
 			remove_file($this->uploadPath().$dosen_foto);
 			$this->session->set_flashdata($this->success('update',array('pesan' => 'Berhasil Update Data')));
 			redirect(route('admin.dosen.index'));

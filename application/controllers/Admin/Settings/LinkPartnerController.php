@@ -42,8 +42,8 @@ class LinkPartnerController extends CI_Controller {
         $id = $this->input->post('id');
         $id_partner = array('id' => $id);
         $partner = $this->partner->search($id_partner)->first_row();
-        remove_file(upload_path('partner').$partner->partner_gambar);
         if($this->partner->delete($id_partner) != false){
+            remove_file(upload_path('partner').$partner->partner_gambar);
             echo json_encode($this->success('delete',array('pesan' => 'Berhasil hapus data')));
         }else{
             echo json_encode($this->error('delete',array('pesan' => 'Gagal hapus data')));
@@ -233,9 +233,6 @@ class LinkPartnerController extends CI_Controller {
         }
 
 		$data['message'] = 'success';
-		$data['csrf'] = $this->getCsrf();
-        $data['active_settings'] = 'active';
-        $data['active_settings_link'] = 'active';
 		return $data;
 	}
 
@@ -252,9 +249,6 @@ class LinkPartnerController extends CI_Controller {
         }
 
 		$data['message'] = 'error';
-		$data['csrf'] = $this->getCsrf();
-		$data['active_settings'] = 'active';
-        $data['active_settings_link'] = 'active';
 		return $data;
 	}
 

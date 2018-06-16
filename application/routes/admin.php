@@ -83,14 +83,32 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
 
         Route::group('/', ['namespace' => 'Pengumuman'], function(){
             Route::get('/','PengumumanController@index',['prefix' => 'pengumuman'])->name('admin.pengumuman.index');
+            Route::get('tambah','PengumumanController@create',['prefix' => 'pengumuman'])->name('admin.pengumuman.create');
+            Route::get('datatable','PengumumanController@datatable',['prefix' => 'pengumuman'])->name('admin.pengumuman.datatable');
+            Route::post('save','PengumumanController@save',['prefix' => 'pengumuman'])->name('admin.pengumuman.save');
+            Route::get('edit/{id}','PengumumanController@edit',['prefix' => 'pengumuman'])->name('admin.pengumuman.edit');
+            Route::post('update','PengumumanController@update',['prefix' => 'pengumuman'])->name('admin.pengumuman.update');
+            Route::post('delete','PengumumanController@delete',['prefix' => 'pengumuman'])->name('admin.pengumuman.delete');
         });
 
         Route::group('/', ['namespace' => 'Hasil-karya'], function(){
             Route::get('/','HasilkaryaController@index',['prefix' => 'hasil-karya'])->name('admin.hasil-karya.index');
+            Route::get('tambah','HasilkaryaController@create',['prefix' => 'hasil-karya'])->name('admin.hasil-karya.create');
+            Route::get('datatable','HasilkaryaController@datatable',['prefix' => 'hasil-karya'])->name('admin.hasil-karya.datatable');
+            Route::post('save','HasilkaryaController@save',['prefix' => 'hasil-karya'])->name('admin.hasil-karya.save');
+            Route::get('edit/{id}','HasilkaryaController@edit',['prefix' => 'hasil-karya'])->name('admin.hasil-karya.edit');
+            Route::post('update','HasilkaryaController@update',['prefix' => 'hasil-karya'])->name('admin.hasil-karya.update');
+            Route::post('delete','HasilkaryaController@delete',['prefix' => 'hasil-karya'])->name('admin.hasil-karya.delete');
         });
 
         Route::group('/', ['namespace' => 'Kerja-sama'], function(){
             Route::get('/','KerjasamaController@index',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.index');
+            Route::get('tambah','KerjasamaController@create',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.create');
+            Route::get('datatable','KerjasamaController@datatable',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.datatable');
+            Route::post('save','KerjasamaController@save',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.save');
+            Route::get('edit/{id}','KerjasamaController@edit',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.edit');
+            Route::post('update','KerjasamaController@update',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.update');
+            Route::post('delete','KerjasamaController@delete',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.delete');
         });
 
         Route::group('/', ['namespace' => 'Dosen'], function(){

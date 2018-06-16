@@ -47,7 +47,7 @@ class KategoriBeritaController extends CI_Controller {
     }
 
     public function save(){
-        $nama_kategori = $this->input->post('nama_kategori');
+        $nama_kategori = $this->security->xss_clean($this->input->post('nama_kategori'));
 
         $data = array(
             'nama_kategori' => $nama_kategori,
@@ -67,7 +67,7 @@ class KategoriBeritaController extends CI_Controller {
     }
 
     public function update(){
-        $nama_kategori = $this->input->post('nama_kategori');
+        $nama_kategori = $this->security->xss_clean($this->input->post('nama_kategori'));
         $id = $this->input->post('id');
         $id_kategori = array('id' => $id);
         
@@ -136,9 +136,6 @@ class KategoriBeritaController extends CI_Controller {
         }
 
 		$data['message'] = 'success';
-		$data['csrf'] = $this->getCsrf();
-        $data['active_settings'] = 'active';
-        $data['active_settings_link'] = 'active';
 		return $data;
 	}
 
@@ -155,9 +152,6 @@ class KategoriBeritaController extends CI_Controller {
         }
 
 		$data['message'] = 'error';
-		$data['csrf'] = $this->getCsrf();
-		$data['active_settings'] = 'active';
-        $data['active_settings_link'] = 'active';
 		return $data;
 	}
 

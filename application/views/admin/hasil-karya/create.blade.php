@@ -8,45 +8,36 @@
         <div class="block-header">
             <ol class="breadcrumb breadcrumb-col-teal">
                 <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                <li><a href="{{route('admin.berita.post.index')}}">Berita</a></li>
+                <li><a href="{{route('admin.hasil-karya.index')}}">Hasil Karya</a></li>
                 <li><a class="active" href="#">Tambah</a></li>
             </ol>
         </div>
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <?php echo form_open_multipart(route('admin.berita.post.save'),'id="form_validation" novalidate="novalidate"')?>
+                    <?php echo form_open_multipart(route('admin.hasil-karya.save'),'id="form_validation" novalidate="novalidate"')?>
                         <div class="header">
-                            <h2>TAMBAH BERITA</h2>
+                            <h2>TAMBAH HASIL KARYA</h2>
                         </div>
                         <div class="body">
-                            <label for="email_address">Judul Berita</label>
+                            <label for="email_address">Judul Hasil Karya</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="judul_berita" required="" aria-required="true">
+                                    <input type="text" class="form-control" name="judul_hasil_karya" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Isi Berita</label>
+                            <label for="email_address">Isi Hasil Karya</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <textarea name="isi_berita" id="isi_berita"></textarea>
+                                    <textarea name="isi_hasil_karya" id="isi_hasil_karya"></textarea>
                                 </div>
-                            </div>
-                            <label for="email_address">Kategori</label>
-                            <div class="form-group">
-                                <select class="form-control show-tick" name="kategori" required="" aria-required="true" >
-                                    <option value="">-- Pilih --</option>
-                                    @foreach ($kategori as $key => $value)
-                                        <option value="{{$value->id}}">{{$value->nama_kategori}}</option>
-                                    @endforeach
-                                </select>
                             </div>
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <label for="email_address">Gambar Berita</label>
+                                    <label for="email_address">Gambar Hasil Karya</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="file" class="form-control" id="gambar_berita" name="gambar_berita" required="" aria-required="true">
+                                            <input type="file" class="form-control" id="gambar_hasil_karya" name="gambar_hasil_karya" required="" aria-required="true">
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +68,7 @@
         
         //TinyMCE
         tinymce.init({
-            selector: "textarea#isi_berita",
+            selector: "textarea#isi_hasil_karya",
             theme: "modern",
             height: 300,
             plugins: [
@@ -118,7 +109,7 @@
             }
         }
 
-        $("#gambar_berita").on("change", function () {
+        $("#gambar_hasil_karya").on("change", function () {
             readURL(this);
         });
     </script>
