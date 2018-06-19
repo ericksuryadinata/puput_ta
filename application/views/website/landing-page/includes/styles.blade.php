@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{{base_url('assets/website/css/component.css')}}" type="text/css">
 <link href="{{base_url('assets/website/css/pace-theme-loading-bar.css')}}" rel="stylesheet" media="all" />    
 <!-- Google fonts -->  
-<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{base_url('assets/website/css/font-awesome.min.css')}}" type="text/css">
 <!--[if lt IE 9]>

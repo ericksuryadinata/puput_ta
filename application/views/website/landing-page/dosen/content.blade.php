@@ -24,10 +24,10 @@
     </table>
 </div>
 @section('additional-styles')
-    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 @endsection
 @section('additional-scripts')
-    <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script>
         jQuery(document).ready(function() {
             jQuery('#dosen-list').DataTable({
