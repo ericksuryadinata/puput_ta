@@ -232,7 +232,8 @@ class LinkPartnerController extends CI_Controller {
             $data['method'] = 'delete';
         }
 
-		$data['message'] = 'success';
+        $data['message'] = 'success';
+        $data['csrf'] = $this->getCsrf();
 		return $data;
 	}
 
@@ -248,7 +249,8 @@ class LinkPartnerController extends CI_Controller {
             $data['method'] = 'delete';
         }
 
-		$data['message'] = 'error';
+        $data['message'] = 'error';
+        $data['csrf'] = $this->getCsrf();
 		return $data;
 	}
 

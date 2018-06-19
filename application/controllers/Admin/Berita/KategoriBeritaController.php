@@ -136,6 +136,7 @@ class KategoriBeritaController extends CI_Controller {
         }
 
 		$data['message'] = 'success';
+		$data['csrf'] = $this->getCsrf();
 		return $data;
 	}
 
@@ -152,6 +153,7 @@ class KategoriBeritaController extends CI_Controller {
         }
 
 		$data['message'] = 'error';
+		$data['csrf'] = $this->getCsrf();
 		return $data;
 	}
 

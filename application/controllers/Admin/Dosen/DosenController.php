@@ -234,7 +234,6 @@ class DosenController extends CI_Controller {
 		}
 		$data['message'] = 'success';
 		$data['csrf'] = $this->getCsrf();
-		$data['active_dosen'] = 'active';
 		return $data;
 	}
 
@@ -249,7 +248,6 @@ class DosenController extends CI_Controller {
 		}
 		$data['message'] = 'error';
 		$data['csrf'] = $this->getCsrf();
-		$data['active_dosen'] = 'active';
 		return $data;
 	}
 
