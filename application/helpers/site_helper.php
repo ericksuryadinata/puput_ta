@@ -235,3 +235,87 @@ if ( ! function_exists('slug'))
 		return $text;
 	}
 }
+
+if (!function_exists('hari_indo')){
+	function hari_indo($hari){
+		switch ($hari) {
+			case '1':
+				return 'Senin';
+				break;
+			case '2':
+				return 'Selasa';
+				break;
+			case '3':
+				return 'Rabu';
+				break;
+			case '4':
+				return 'Kamis';
+				break;
+			case '5':
+				return 'Jumat';
+				break;
+			case '6':
+				return 'Sabtu';
+				break;
+			case '7':
+				return 'Minggu';
+				break;
+			default:
+				return false;
+				break;
+		}
+	}
+}
+
+if (!function_exists('tgl_indo')){
+	function tgl_indo($tgl,$condition=null){
+     	$tanggal = substr($tgl,8,2);
+     	switch (substr($tgl,5,2)){
+			case '01': 
+				$bulan= "Januari";
+				break;
+			case '02':
+				$bulan= "Februari";
+				break;
+			case '03':
+				$bulan= "Maret";
+				break;
+			case '04':
+				$bulan= "April";
+				break;
+			case '05':
+				$bulan= "Mei";
+				break;
+			case '06':
+				$bulan= "Juni";
+				break;
+			case '07':
+				$bulan= "Juli";
+				break;
+			case '08':
+				$bulan= "Agustus";
+				break;
+			case '09':
+				$bulan= "September";
+				break;
+			case '10':
+				$bulan= "Oktober";
+				break;
+			case '11':
+				$bulan= "November";
+				break;
+			case '12':
+				$bulan= "Desember";
+				break;
+		}
+		$tahun = substr($tgl,0,4);
+
+		if($condition !== 'berita'){
+			return $tanggal.' '.$bulan.' '.$tahun;
+		}else{
+			$jam = explode(' ',$tgl);
+			$datetime = new DateTime($tgl);
+			return hari_indo(date('N',$datetime->getTimestamp())).', '.$tanggal.' '.$bulan.' '.$tahun.' - '.$jam[1].' WIB';
+		}
+     }
+}

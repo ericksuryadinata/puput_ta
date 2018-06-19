@@ -70,6 +70,14 @@ class KerjaSamaModel extends CI_Model{
 	public function delete($id){
         $this->db->where($id);
         return $this->db->delete($this->table);
-    }
+	}
+	
+	public function all($limit,$offset){
+		return $this->db->order_by('created_at','ASC')->limit($limit,$offset)->get($this->table);
+	}
+
+	public function totalPost(){
+		return $this->db->count_all($this->table);
+	}
 
 }

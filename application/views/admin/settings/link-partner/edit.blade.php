@@ -17,7 +17,7 @@
                 <div class="card">
                     <?php echo form_open_multipart(route('admin.settings.link.update'),'id="form_validation" novalidate="novalidate"')?>
                         <div class="header">
-                            <h2>TAMBAH DOSEN</h2>
+                            <h2>EDIT LINK PARTNER</h2>
                         </div>
                         <div class="body">
                             <label for="email_address">Nama Partner</label>

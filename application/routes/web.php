@@ -56,12 +56,24 @@ Route::group('/',['namespace' => 'Website', 'middleware' => ['WebsiteMiddleware'
     Route::get('publikasi','PublikasiController@index')->name('publikasi.index');
     
     Route::get('berita','BeritaController@index')->name('berita.index');
+    Route::get('berita/halaman/','BeritaController@index');
+    Route::get('berita/halaman/{id}','BeritaController@index');
+    Route::get('berita/{slug}','BeritaController@detail')->name('berita.detail');
     
     Route::get('pengumuman','PengumumanController@index')->name('pengumuman.index');
+    Route::get('pengumuman/halaman/','PengumumanController@index');
+    Route::get('pengumuman/halaman/{id}','PengumumanController@index');
+    Route::get('pengumuman/{slug}','PengumumanController@detail')->name('pengumuman.detail');
     
     Route::get('hasil-karya','HasilKaryaController@index')->name('hasil-karya.index');
+    Route::get('hasil-karya/halaman/','HasilKaryaController@index');
+    Route::get('hasil-karya/halaman/{id}','HasilKaryaController@index');
+    Route::get('hasil-karya/{slug}','HasilKaryaController@detail')->name('hasil-karya.detail');
 
     Route::get('kerja-sama','KerjaSamaController@index')->name('kerja-sama.index');
+    Route::get('kerja-sama/halaman/','KerjaSamaController@index');
+    Route::get('kerja-sama/halaman/{id}','KerjaSamaController@index');
+    Route::get('kerja-sama/{slug}','KerjaSamaController@detail')->name('kerja-sama.detail');
     
 });
 

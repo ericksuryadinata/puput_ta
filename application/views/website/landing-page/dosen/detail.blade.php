@@ -133,11 +133,7 @@
                             </div>
                         </div>
                     </div>
-                <div class="dt-sc-hr-invisible"></div>   
-                <div class="dt-sc-clear"></div>    
-                @include('website.landing-page.includes.global-partner')
-                <div class="dt-sc-hr-invisible-very-small"></div>
-                <div class="dt-sc-clear"></div>
+                </div>
             </div>
         </div>
     </section>

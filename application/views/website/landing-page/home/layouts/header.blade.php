@@ -50,26 +50,20 @@
                 <div id="slider">
                     <div id="rev_slider_24_1_wrapper" class="rev_slider_wrapper fullscreen-container" style="padding:0px;">
                         <div id="rev_slider_24_1" class="rev_slider fullscreenbanner" style="display:none;">
-                            <ul>	
-                                <li class="rs-slide1" data-transition="random">
-                                    <img src="{{base_url('uploads/images/slider/IMG_9919.JPG')}}" alt="bg1" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
-                                </li> 
-                
-                                <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/sdf2.jpg')}}" alt="bg2" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
-                                </li> 
-                
-                                <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/robot.jpg')}}" alt="bg3" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
-                                </li> 
-                
-                                <li class="rs-slide1" data-transition="random" >
-                                    <img src="{{base_url('uploads/images/slider/ramadhan2_-_Copy.jpg')}}" alt="bg4" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
-                                </li> 
+                            <ul>
+                                @if (count($slider) != 0)
+                                    @foreach ($slider as $key=>$value)
+                                        <li class="rs-slide1" data-transition="random">
+                                            <img src="{{base_url(image_path_for('slider').$value->slider_gambar)}}" alt="{{$value->slider_nama}}" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
+                                        </li>
+                                    @endforeach
+                                @else
+                                    <li class="rs-slide1" data-transition="random">
+                                        <img src="{{base_url(default_image_for('untag'))}}" alt="bg1" data-bgrepeat="no-repeat" data-bgfit="contain" data-bgposition="center center">
+                                    </li>
+                                @endif
                             </ul>
-                
                             <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
-                
                         </div>
                     </div>
                 </div>                    

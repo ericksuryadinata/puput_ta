@@ -15,3 +15,5 @@
         </ul>           
     </div>
 </div>
+<div class="dt-sc-hr-invisible-very-small"></div>
+<div class="dt-sc-clear"></div>

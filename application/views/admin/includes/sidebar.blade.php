@@ -95,6 +95,9 @@
                         <li class="{{isset($active_settings_link) ? $active_settings_link : ''}}">
                             <a href="{{route('admin.settings.link.index')}}">Link Partner</a>
                         </li>
+                        <li class="{{isset($active_settings_slider) ? $active_settings_slider : ''}}">
+                            <a href="{{route('admin.settings.slider.index')}}">Slider</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

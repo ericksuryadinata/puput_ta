@@ -8,43 +8,51 @@
         <div class="block-header">
             <ol class="breadcrumb breadcrumb-col-teal">
                 <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                <li><a href="{{route('admin.settings.link.index')}}">Link Partner</a></li>
+                <li><a href="{{route('admin.settings.slider.index')}}">Slider</a></li>
                 <li><a class="active" href="#">Tambah</a></li>
             </ol>
         </div>
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <?php echo form_open_multipart(route('admin.settings.link.save'),'id="form_validation" novalidate="novalidate"')?>
+                    <?php echo form_open_multipart(route('admin.settings.slider.update'),'id="form_validation" novalidate="novalidate"')?>
                         <div class="header">
-                            <h2>TAMBAH LINK PARTNER</h2>
+                            <h2>TAMBAH SLIDER</h2>
                         </div>
                         <div class="body">
-                            <label for="email_address">Nama Partner</label>
+                            <label for="email_address">Nama Slider</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="nama_partner" required="" aria-required="true">
+                                    <input value="{{isset($slider->slider_nama) ? $slider->slider_nama : '' }}" type="text" class="form-control" name="nama_slider" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Link Partner</label>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" class="form-control" name="link_partner" required="" aria-required="true">
-                                </div>
-                            </div>
+                            <?php
+                                if(isset($slider->slider_gambar)){
+                                    $foto = $slider->slider_gambar;
+                                    if($foto !== ''){
+                                        $placeholder = base_url().image_path_for('slider').$foto;
+                                    }else{
+                                        $placeholder = base_url().default_image_for('camera');
+                                    }
+                                }else{
+                                    $foto = '';
+                                    $placeholder = base_url().default_image_for('camera');
+                                }
+
+                            ?>
                             <div class="row clearfix">
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                                    <label>Preview <small>ukuran sebenarnya 190 x 55</small></label>
-                                    <div>
-                                        <img id="targetphoto" src="{{base_url(default_image_for('long-ads'))}}" alt="partnerphoto" height="55" width="190" style="object-fit:contain">
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
-                                    <label for="email_address">Gambar</label>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label for="email_address">Gambar Slider</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="file" class="form-control" id="partner_gambar" name="partner_gambar" required="" aria-required="true">
+                                            <input type="file" class="form-control" id="slider_gambar" name="slider_gambar" required="" aria-required="true">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label>Preview <small>ukuran sebenarnya 900x675</small></label>
+                                    <div>
+                                        <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="targetphoto" src="{{$placeholder}}" alt="profilphoto" style="object-fit:contain">
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +93,7 @@
             }
         }
 
-        $("#partner_gambar").on("change", function () {
+        $("#slider_gambar").on("change", function () {
             readURL(this);
         });
     </script>

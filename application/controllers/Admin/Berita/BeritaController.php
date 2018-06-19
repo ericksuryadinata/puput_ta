@@ -236,7 +236,7 @@ class BeritaController extends CI_Controller {
 		if($condition === 'resize'){
 			$sizes = array(
 				'mobile' => array(75,75),
-				'thumb' => array(300,200),
+				'thumb' => array(300,250),
 				'medium' => array(500,270),
 				'large' => array(720,480),
 				'extra' => array(900,675)
@@ -268,7 +268,7 @@ class BeritaController extends CI_Controller {
 				'image_library' => 'gd2',
 				'source_image' => upload_path('berita','original').$gambar['file_name'],
 				'new_image' => upload_path('berita').$key.'/'.$gambar['file_name'],
-				'maintain_ratio' => TRUE,
+				'maintain_ratio' => FALSE,
 				'width' => $value[0],
 				'height' => $value[1],
 			);

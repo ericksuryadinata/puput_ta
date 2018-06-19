@@ -27,11 +27,10 @@
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 @endsection
 @section('additional-scripts')
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#dosen-list').DataTable({
+        jQuery(document).ready(function() {
+            jQuery('#dosen-list').DataTable({
                 serverSide: true,
                 responsive:true,
                 order: [],

@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HasilKaryaModel extends CI_Model{
+class SliderModel extends CI_Model{
 
-    private $table = 'hasil_karya';
-    private $column_order = array(null, 'hasil_karya_gambar','hasil_karya_judul','hasil_karya_isi','hasil_karya_views');
-	private $column_search = array('hasil_karya_gambar','hasil_karya_judul','hasil_karya_isi','hasil_karya_views');
+    private $table = 'slider';
+    private $column_order = array(null,'slider_nama','slider_gambar','slider_views');
+	private $column_search = array('slider_nama','slider_gambar','slider_views');
     private $order_by = array('id'=>'asc');
 
     private function _get(){
@@ -72,12 +72,8 @@ class HasilKaryaModel extends CI_Model{
         return $this->db->delete($this->table);
 	}
 	
-	public function all($limit,$offset){
-		return $this->db->order_by('created_at','ASC')->limit($limit,$offset)->get($this->table);
-	}
-
-	public function totalPost(){
-		return $this->db->count_all($this->table);
+	public function newest($limit){
+		return $this->db->order_by('created_at','ASC')->limit($limit)->get($this->table);
 	}
 
 }

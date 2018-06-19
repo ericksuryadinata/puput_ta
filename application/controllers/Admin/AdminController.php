@@ -11,8 +11,21 @@ class AdminController extends CI_Controller {
 	}
 	
 	public function index(){
+		$data['csrf'] = $this->getCsrf();
 		$data['active_dashboard'] = 'active';
 		echo $this->page->tampil('admin.dashboard.index',$data);
+	}
+
+
+	/**
+	 * Private function for this page only
+	 */
+
+	private function getCsrf(){
+		return array(
+			'name' => $this->security->get_csrf_token_name(),
+			'token' => $this->security->get_csrf_hash(),
+		);
 	}
 
 }

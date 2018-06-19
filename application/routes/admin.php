@@ -29,7 +29,7 @@
  */
 
 Route::group('super-admin',['namespace' => 'Admin'],function(){
-
+    Route::get('/','RedirectController@index')->name('admin.redirect.index');
     Route::group('gate',['namespace' => 'Auth'],function(){
         Route::get('in','AuthController@index')->name('admin.auth.index');
         Route::post('in/auth','AuthController@auth')->name('admin.auth.login');
@@ -136,6 +136,15 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
             Route::post('update','LinkPartnerController@update',['prefix' => 'settings/link'])->name('admin.settings.link.update');
             Route::post('delete','LinkPartnerController@delete',['prefix' => 'settings/link'])->name('admin.settings.link.delete');
             Route::post('aktifkan','LinkPartnerController@aktifkan',['prefix' => 'settings/link'])->name('admin.settings.link.aktifkan');
+
+            Route::get('/','SliderController@index',['prefix' => 'settings/slider'])->name('admin.settings.slider.index');
+            Route::get('tambah','SliderController@create',['prefix' => 'settings/slider'])->name('admin.settings.slider.create');
+            Route::get('datatable','SliderController@datatable',['prefix' => 'settings/slider'])->name('admin.settings.slider.datatable');
+            Route::post('save','SliderController@save',['prefix' => 'settings/slider'])->name('admin.settings.slider.save');
+            Route::get('edit/{id}','SliderController@edit',['prefix' => 'settings/slider'])->name('admin.settings.slider.edit');
+            Route::post('update','SliderController@update',['prefix' => 'settings/slider'])->name('admin.settings.slider.update');
+            Route::post('delete','SliderController@delete',['prefix' => 'settings/slider'])->name('admin.settings.slider.delete');
+            Route::post('aktifkan','SliderController@aktifkan',['prefix' => 'settings/slider'])->name('admin.settings.slider.aktifkan');
         });
     });
 });

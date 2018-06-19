@@ -5,51 +5,11 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box-3 bg-red">
-                    <div class="icon">
-                        <i class="material-icons">shopping_cart</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">NEW ORDERS</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20">125</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box-3 bg-indigo">
-                    <div class="icon">
-                        <i class="material-icons">face</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">NEW MEMBERS</div>
-                        <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20">257</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box-3 bg-purple">
-                    <div class="icon">
-                        <i class="material-icons">bookmark</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">BOOKMARKS</div>
-                        <div class="number count-to" data-from="0" data-to="117" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box-3 bg-deep-purple">
-                    <div class="icon">
-                        <i class="material-icons">favorite</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">LIKES</div>
-                        <div class="number count-to" data-from="0" data-to="1432" data-speed="1500" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="block-header">
+        <ol class="breadcrumb breadcrumb-col-teal">
+            <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+            <li><a class="active" href="#">Slider</a></li>
+        </ol>
         </div>
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -93,6 +53,7 @@
 </section>
 <input type="text" hidden name="token_csrf" value="<?php echo $csrf["token"]?>">
 <input type="text" hidden name="name_csrf" value="<?php echo $csrf["name"]?>">
+
 @stop
 @section('additional-scripts')
     <!-- Bootstrap Notify Plugin Js -->
@@ -116,9 +77,6 @@
         }
     ?>
     <script>
-    function initCounters() {
-        $('.count-to').countTo();
-    }
     let table;
     $(document).ready(function () {
         let csrfName = $('[name=name_csrf]').val();
@@ -188,7 +146,7 @@
                 }
             });
         });
-        initCounters();
+
     });
     </script>
 @endsection
