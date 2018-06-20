@@ -136,7 +136,7 @@ class WebsiteMiddleware{
                     if ($row->next == NULL || $row->next == 0) {
                         $count = 1;
                     } else {
-                        $count++;
+                        $count = $row->next + 1;
                     }
                 }
                 //update the visitor entry with the new visitor id
