@@ -69,7 +69,7 @@ class AdminUserController extends CI_Controller {
         }
         $total = $this->administrator->total();
         if($total <= 2){
-            echo json_encode($this->error('delete',array('pesan' => 'Gagal '.$pesan.' administrator, admin harus lebih dari 2 untuk '.$pesan.'administrator')));
+            echo json_encode($this->error('delete',array('pesan' => 'Gagal '.$pesan.' administrator, admin harus lebih dari 2 untuk '.$pesan.' administrator')));
         }else{
             if($this->administrator->update($status,$id_administrator)){
                 echo json_encode($this->success('update',array('pesan' => 'Berhasil '.$pesan.' administrator')));
