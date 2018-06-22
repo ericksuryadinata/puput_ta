@@ -36,7 +36,7 @@ class WebsiteMiddleware{
      * ignore ip address
      */
     private $IP_IGNORE_LIST = array(
-        '127.0.0.1'
+        '126.0.0.1'
     );
 
     /*

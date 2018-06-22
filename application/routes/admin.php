@@ -112,6 +112,16 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
             Route::post('delete','KerjasamaController@delete',['prefix' => 'kerja-sama'])->name('admin.kerja-sama.delete');
         });
 
+        Route::group('/',['namespace' => 'Publikasi'], function(){
+            Route::get('/','PublikasiController@index',['prefix' => 'publikasi'])->name('admin.publikasi.index');
+            Route::get('/','PublikasiController@create',['prefix' => 'publikasi'])->name('admin.publikasi.create');
+            Route::get('/','PublikasiController@datatable',['prefix' => 'publikasi'])->name('admin.publikasi.datatable');
+            Route::post('/','PublikasiController@save',['prefix' => 'publikasi'])->name('admin.publikasi.save');
+            Route::get('/','PublikasiController@edit',['prefix' => 'publikasi'])->name('admin.publikasi.edit');
+            Route::post('/','PublikasiController@update',['prefix' => 'publikasi'])->name('admin.publikasi.update');
+            Route::post('/','PublikasiController@delete',['prefix' => 'publikasi'])->name('admin.publikasi.delete');
+        });
+
         Route::group('/', ['namespace' => 'Dosen'], function(){
             Route::get('/','DosenController@index',['prefix' => 'dosen'])->name('admin.dosen.index');
             Route::get('tambah','DosenController@create',['prefix' => 'dosen'])->name('admin.dosen.create');

@@ -6,6 +6,7 @@ class AdminController extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model(array('DashboardModel' => 'dashboard'));
+		$this->load->helper(array('text'));
 		$this->surename = $this->session->userdata('surename');
 		$this->email = $this->session->userdata('email');
 		$this->page->sebar('ctrl',$this);
@@ -26,10 +27,22 @@ class AdminController extends CI_Controller {
 		$no = $_GET['start'];
 		foreach ($list as $dashboard) {
 			$row = array();
+			$requested = '';
 			if($dashboard->requested_url == '/'){
 				$requested = 'halaman awal';
 			}else{
-				$requested = str_replace('/','',$dashboard->requested_url);
+				if(strpos($dashboard->requested_url,'datatables') === FALSE){
+					$explode = explode('/',$dashboard->requested_url);
+					foreach($explode as $key => $string){
+						if($key == 0){
+							$requested .= $string;
+						}else{
+							$requested .= $string.', ';
+						}
+					}
+				}else{
+					$requested = preg_replace('/([^\s]{22})/', '$1<wbr>', $dashboard->requested_url);
+				}
 			}
 
 			if(isset($dashboard->referer_page) && $dashboard->referer_page !== ''){

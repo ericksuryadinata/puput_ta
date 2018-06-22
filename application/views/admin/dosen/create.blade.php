@@ -20,46 +20,46 @@
                             <h2>TAMBAH DOSEN</h2>
                         </div>
                         <div class="body">
-                            <label for="email_address">Nomor Induk Dosen</label>
+                            <label>Nomor Induk Dosen</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="nidn" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Nama Dosen</label>
+                            <label>Nama Dosen</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="nama_dosen" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Posisi</label>
+                            <label>Posisi</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="posisi" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Alamat</label>
+                            <label>Alamat</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="alamat" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Telepon</label>
+                            <label>Telepon</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="telepon" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Fax</label>
+                            <label>Fax</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="fax" required="" aria-required="true">
+                                    <input type="text" class="form-control" name="fax">
                                 </div>
                             </div>
-                            <label for="email_address">Email</label>
+                            <label>Email</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="email" required="" aria-required="true">
+                                    <input type="email" class="form-control" name="email" required="" aria-required="true">
                                 </div>
                             </div>
                             <div class="row clearfix">
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
-                                    <label for="email_address">Foto</label>
+                                    <label>Foto</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="file" class="form-control" id="fotodosen" name="fotodosen" required="" aria-required="true">
@@ -78,22 +78,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <label for="email_address">Laman Web</label>
+                            <label>Laman Web</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="laman_web" required="" aria-required="true">
+                                    <input type="text" class="form-control" name="laman_web">
                                 </div>
                             </div>
-                            <label for="email_address">Aktifitas Sekarang</label>
+                            <label>Aktifitas Sekarang</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <textarea name="aktifitas" id="aktifitas"></textarea>
                                 </div>
                             </div>
-                            <label for="email_address">Minat Penelitian</label>
+                            <label>Minat Penelitian</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <textarea name="minat_penelitian" id="minat_penelitian"></textarea>
+                                </div>
+                            </div>
+                            <label>Latar Belakang Pendidikan</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea name="latar_belakang_pendidikan" id="latar_belakang_pendidikan"></textarea>
+                                </div>
+                            </div>
+                            <label>Pengalaman Mengajar</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea name="pengalaman_mengajar" id="pengalaman_mengajar"></textarea>
+                                </div>
+                            </div>
+                            <label>Publikasi</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea name="publikasi" id="publikasi"></textarea>
                                 </div>
                             </div>
                             <button type="submit" class="btn bg-green waves-effect simpan" id="simpan">SIMPAN</button>
@@ -138,7 +156,50 @@
             ],
             toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
             toolbar2: 'print preview | forecolor backcolor emoticons',
-        })
+        });
+
+        tinymce.init({
+            selector: "textarea#latar_belakang_pendidikan",
+            theme: "modern",
+            height: 300,
+            plugins: [
+                'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'print preview | forecolor backcolor emoticons',
+        });
+
+        tinymce.init({
+            selector: "textarea#pengalaman_mengajar",
+            theme: "modern",
+            height: 300,
+            plugins: [
+                'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'print preview | forecolor backcolor emoticons',
+        });
+
+        tinymce.init({
+            selector: "textarea#publikasi",
+            theme: "modern",
+            height: 300,
+            plugins: [
+                'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'print preview | forecolor backcolor emoticons',
+        });
+
         tinymce.suffix = ".min";
         tinyMCE.baseURL = "{{base_url('assets/admin/plugins/tinymce')}}";
 

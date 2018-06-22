@@ -68,6 +68,9 @@ class DosenController extends CI_Controller {
 		$laman_web = $this->security->xss_clean($this->input->post('laman_web'));
 		$aktifitas = $this->security->xss_clean($this->input->post('aktifitas'));
 		$peminatan = $this->security->xss_clean($this->input->post('minat_penelitian'));
+		$latar_belakang_pendidikan = $this->security->xss_clean($this->input->post('latar_belakang_pendidikan'));
+		$pengalaman_mengajar = $this->security->xss_clean($this->input->post('pengalaman_mengajar'));
+		$publikasi = $this->security->xss_clean($this->input->post('publikasi'));
 		$gambar = $this->security->xss_clean($this->input->post('fotodosen'));
 		
 		$filename = 'DOSEN_'.seo($nama_dosen).'_'.date('Ymdhis');
@@ -101,6 +104,9 @@ class DosenController extends CI_Controller {
 			'laman_web' => $laman_web,
 			'aktifitas' => $aktifitas,
 			'peminatan' => $peminatan,
+			'latar_belakang_pendidikan' => $latar_belakang_pendidikan,
+			'pengalaman_mengajar' => $pengalaman_mengajar,
+			'publikasi' => $publikasi,
 			'nama_foto' => $gambar,
 			'created_at' => Carbon::now(),
 			'updated_at' => Carbon::now(),
@@ -127,6 +133,9 @@ class DosenController extends CI_Controller {
 		$laman_web = $this->security->xss_clean($this->input->post('laman_web'));
 		$aktifitas = $this->security->xss_clean($this->input->post('aktifitas'));
 		$peminatan = $this->security->xss_clean($this->input->post('minat_penelitian'));
+		$latar_belakang_pendidikan = $this->security->xss_clean($this->input->post('latar_belakang_pendidikan'));
+		$pengalaman_mengajar = $this->security->xss_clean($this->input->post('pengalaman_mengajar'));
+		$publikasi = $this->security->xss_clean($this->input->post('publikasi'));
 		$id = $this->security->xss_clean($this->input->post('id'));
 		$gambar = $this->security->xss_clean($this->input->post('fotodosen'));
 
@@ -166,6 +175,9 @@ class DosenController extends CI_Controller {
 			'laman_web' => $laman_web,
 			'aktifitas' => $aktifitas,
 			'peminatan' => $peminatan,
+			'latar_belakang_pendidikan' => $latar_belakang_pendidikan,
+			'pengalaman_mengajar' => $pengalaman_mengajar,
+			'publikasi' => $publikasi,
 			'nama_foto' => $gambar,
 			'updated_at' => Carbon::now(),
 			'updated_by' => $this->session->userdata('userid'),

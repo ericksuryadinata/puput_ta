@@ -63,33 +63,55 @@
                 <h4 class="modal-title">Detail Dosen</h4>
             </div>
             <div class="modal-body">
-                <div class="media">
-                    <div class="media-left">
-                        <a href="javascript:void(0);">
-                            <img id="foto_dosen" class="media-object" src="http://placehold.it/64x64" width="150" height="200">
-                        </a>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                    <li role="presentation" class="active"><a href="#cv" data-toggle="tab">Curriculum Vitae</a></li>
+                    <li role="presentation"><a href="#education" data-toggle="tab">Education Background</a></li>
+                    <li role="presentation"><a href="#teaching" data-toggle="tab">Teaching Experience</a></li>
+                    <li role="presentation"><a href="#publications" data-toggle="tab">Publications</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="cv">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="javascript:void(0);">
+                                    <img id="foto_dosen" class="media-object" src="http://placehold.it/64x64" width="150" height="200">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <label for="nidn">Nomor Induk Dosen</label>
+                                <p class="lead" id="nidn"></p>
+                                <label for="nama">Nama Dosen</label>
+                                <p class="lead" id="nama"></p>
+                                <label for="posisi">Posisi</label>
+                                <p class="lead" id="posisi"></p>
+                                <label for="alamat">Alamat</label>
+                                <p class="lead" id="alamat"></p>
+                                <label for="telepon">Telepon</label>
+                                <p class="lead" id="telepon"></p>
+                                <label for="fax">Fax</label>
+                                <p class="lead" id="fax"></p>
+                                <label for="email">Email</label>
+                                <p class="lead" id="email"></p>
+                                <label for="laman_web">Laman Web</label>
+                                <p class="lead" id="laman_web"></p>
+                                <label for="aktifitas">Aktifitas</label>
+                                <p class="lead" id="aktifitas"></p>
+                                <label for="peminatan">Minat Penelitian</label>
+                                <p class="lead" id="peminatan"></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="media-body">
-                        <label for="nidn">Nomor Induk Dosen</label>
-                        <p class="lead" id="nidn"></p>
-                        <label for="nama">Nama Dosen</label>
-                        <p class="lead" id="nama"></p>
-                        <label for="posisi">Posisi</label>
-                        <p class="lead" id="posisi"></p>
-                        <label for="alamat">Alamat</label>
-                        <p class="lead" id="alamat"></p>
-                        <label for="telepon">Telepon</label>
-                        <p class="lead" id="telepon"></p>
-                        <label for="fax">Fax</label>
-                        <p class="lead" id="fax"></p>
-                        <label for="email">Email</label>
-                        <p class="lead" id="email"></p>
-                        <label for="laman_web">Laman Web</label>
-                        <p class="lead" id="laman_web"></p>
-                        <label for="aktifitas">Aktifitas</label>
-                        <p class="lead" id="aktifitas"></p>
-                        <label for="peminatan">Minat Penelitian</label>
-                        <p class="lead" id="peminatan"></p>
+                    <div role="tabpanel" class="tab-pane fade" id="education">
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="teaching">
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="publications">
+                        
                     </div>
                 </div>
             </div>
@@ -167,6 +189,9 @@
                     $("#laman_web").text(data.laman_web);
                     $("#aktifitas").html(data.aktifitas);
                     $("#peminatan").html(data.peminatan);
+                    $("#education").html(data.latar_belakang_pendidikan);
+                    $("#teaching").html(data.pengalaman_mengajar);
+                    $("#publications").html(data.publikasi);
                     $('#detailModal').modal('show');     
                 }
             });

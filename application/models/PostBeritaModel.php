@@ -6,7 +6,7 @@ class PostBeritaModel extends CI_Model{
     private $table = 'berita';
     private $column_order = array(null, 'berita_gambar','berita_judul','berita_isi','berita_kategori_id','berita_views');
 	private $column_search = array('berita_gambar','berita_judul','berita_isi','berita_kategori_id','berita_views');
-    private $order_by = array('id'=>'asc');
+    private $order_by = array('id'=>'desc');
 
     private function _get(){
 		$this->db->from($this->table);
@@ -73,11 +73,11 @@ class PostBeritaModel extends CI_Model{
 	}
 	
 	public function newest($limit){
-		return $this->db->order_by('created_at','ASC')->limit($limit)->get($this->table);
+		return $this->db->order_by('created_at','DESC')->limit($limit)->get($this->table);
 	}
 
 	public function all($limit,$offset){
-		return $this->db->order_by('created_at','ASC')->limit($limit,$offset)->get($this->table);
+		return $this->db->order_by('created_at','DESC')->limit($limit,$offset)->get($this->table);
 	}
 
 	public function totalPost(){

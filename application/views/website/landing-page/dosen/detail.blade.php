@@ -6,6 +6,7 @@
 <div class="main">
     <div class="breadcrumb-section">
         <div class="container">
+            <h1>Detail Dosen</h1>
             <div class="breadcrumb">
                 <a href="{{base_url()}}" target="_top">Home</a>
                 <span class="fa fa-angle-double-right"></span>
@@ -18,7 +19,7 @@
     <section class="content-main">
         <div class="fullwidth-section">
             <div class="fullwidth-bg">	
-                <div class="container">    
+                <div class="container">
                     <div class="dt-sc-tabs-container type2">
                         <ul class="dt-sc-tabs">
                             <li class="current"><a class="current" href="#">Curriculum Vitae</a></li>
@@ -107,7 +108,7 @@
                                 <div class="dt-sc-hr-invisible"></div>
                                 <div class="dt-sc-clear"></div>
                                 <h3>Education Background </h3>                                                       
-                                <p></p>
+                                {!!isset($dosen->latar_belakang_pendidikan) ? $dosen->latar_belakang_pendidikan : ''!!}
                                 <div class="dt-sc-hr-invisible-very-small"></div>
                                 <div class="dt-sc-clear"></div>
                             </div>
@@ -117,7 +118,7 @@
                                 <div class="dt-sc-hr-invisible"></div>
                                 <div class="dt-sc-clear"></div>
                                 <h3>Teaching Experiences </h3>
-                                <p></p>
+                                {!!isset($dosen->pengalaman_mengajar) ? $dosen->pengalaman_mengajar : ''!!}
                                 <div class="dt-sc-hr-invisible-very-small"></div>
                                 <div class="dt-sc-clear"></div>
                             </div>
@@ -127,7 +128,7 @@
                                 <div class="dt-sc-hr-invisible"></div>
                                 <div class="dt-sc-clear"></div>
                                 <h3>Publications </h3>
-                                <p></p>
+                                {!!isset($dosen->publikasi) ? $dosen->publikasi : ''!!}
                                 <div class="dt-sc-hr-invisible-very-small"></div>
                                 <div class="dt-sc-clear"></div>
                             </div>

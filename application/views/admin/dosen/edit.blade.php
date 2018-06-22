@@ -20,46 +20,46 @@
                             <h2>EDIT DOSEN</h2>
                         </div>
                         <div class="body">
-                            <label for="email_address">Nomor Induk Dosen</label>
+                            <label>Nomor Induk Dosen</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input value="{{isset($dosen->nidn) ? $dosen->nidn : ''}}" type="text" class="form-control" name="nidn" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Nama Dosen</label>
+                            <label>Nama Dosen</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input value="{{isset($dosen->nama) ? $dosen->nama : ''}}" type="text" class="form-control" name="nama_dosen" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Posisi</label>
+                            <label>Posisi</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input value="{{isset($dosen->posisi) ? $dosen->posisi : ''}}" type="text" class="form-control" name="posisi" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Alamat</label>
+                            <label>Alamat</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input value="{{isset($dosen->alamat) ? $dosen->alamat : ''}}" type="text" class="form-control" name="alamat" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Telepon</label>
+                            <label>Telepon</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input value="{{isset($dosen->telepon) ? $dosen->telepon : ''}}" type="text" class="form-control" name="telepon" required="" aria-required="true">
                                 </div>
                             </div>
-                            <label for="email_address">Fax</label>
+                            <label>Fax</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input value="{{isset($dosen->fax) ? $dosen->fax : ''}}" type="text" class="form-control" name="fax" required="" aria-required="true">
+                                    <input value="{{isset($dosen->fax) ? $dosen->fax : ''}}" type="text" class="form-control">
                                 </div>
                             </div>
-                            <label for="email_address">Email</label>
+                            <label>Email</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input value="{{isset($dosen->email) ? $dosen->email : ''}}" type="text" class="form-control" name="email" required="" aria-required="true">
+                                    <input value="{{isset($dosen->email) ? $dosen->email : ''}}" type="email" class="form-control" name="email" required="" aria-required="true">
                                 </div>
                             </div>
                             <?php
@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
-                                    <label for="email_address">Foto</label>
+                                    <label>Foto</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="file" class="form-control" id="fotodosen" name="fotodosen" required="" aria-required="true">
@@ -92,13 +92,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <label for="email_address">Laman Web</label>
+                            <label>Laman Web</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input value="{{isset($dosen->laman_web) ? $dosen->laman_web : ''}}" type="text" class="form-control" name="laman_web" required="" aria-required="true">
+                                    <input value="{{isset($dosen->laman_web) ? $dosen->laman_web : ''}}" type="text" class="form-control" name="laman_web">
                                 </div>
                             </div>
-                            <label for="email_address">Aktifitas Sekarang</label>
+                            <label>Aktifitas Sekarang</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <textarea name="aktifitas" id="aktifitas">
@@ -106,11 +106,35 @@
                                     </textarea>
                                 </div>
                             </div>
-                            <label for="email_address">Minat Penelitian</label>
+                            <label>Minat Penelitian</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <textarea name="minat_penelitian" id="minat_penelitian">
                                         {{isset($dosen->peminatan) ? $dosen->peminatan : ''}}
+                                    </textarea>
+                                </div>
+                            </div>
+                            <label>Latar Belakang Pendidikan</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea name="latar_belakang_pendidikan" id="latar_belakang_pendidikan">
+                                        {{isset($dosen->latar_belakang_pendidikan) ? $dosen->latar_belakang_pendidikan : ''}}
+                                    </textarea>
+                                </div>
+                            </div>
+                            <label>Pengalaman Mengajar</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea name="pengalaman_mengajar" id="pengalaman_mengajar">
+                                        {{isset($dosen->pengalaman_mengajar) ? $dosen->pengalaman_mengajar : ''}}
+                                    </textarea>
+                                </div>
+                            </div>
+                            <label>Publikasi</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea name="publikasi" id="publikasi">
+                                        {{isset($dosen->publikasi) ? $dosen->publikasi : ''}}
                                     </textarea>
                                 </div>
                             </div>

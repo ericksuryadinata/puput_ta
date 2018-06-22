@@ -6,7 +6,7 @@ class DashboardModel extends CI_Model{
     private $table = 'site_log';
 	private $column_order = array(null, 'ip_address','requested_url','referer_page','user_agent','access_date');
 	private $column_search = array('ip_address','requested_url','referer_page','user_agent','access_date');
-    private $order_by = array('site_log_id'=>'asc');
+    private $order_by = array('site_log_id'=>'desc');
     
     private function _get(){
 		$this->db->from($this->table);
