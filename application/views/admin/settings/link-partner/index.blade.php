@@ -116,6 +116,11 @@
                         $('[name=name_csrf]').val(response.csrf.name);
                         $('#refresh').trigger('click');
                         showNotif(response.pesan,response.message);
+                    }else{
+                        $('[name=token_csrf]').val(response.csrf.token);
+                        $('[name=name_csrf]').val(response.csrf.name);
+                        $('#refresh').trigger('click');
+                        showNotif(response.pesan,response.message);
                     }
                 }
             });
@@ -140,6 +145,11 @@
                 dataType: "JSON",
                 success: function (response) {
                     if(response.message === 'success'){
+                        $('[name=token_csrf]').val(response.csrf.token);
+                        $('[name=name_csrf]').val(response.csrf.name);
+                        $('#refresh').trigger('click');
+                        showNotif(response.pesan,response.message);
+                    }else{
                         $('[name=token_csrf]').val(response.csrf.token);
                         $('[name=name_csrf]').val(response.csrf.name);
                         $('#refresh').trigger('click');

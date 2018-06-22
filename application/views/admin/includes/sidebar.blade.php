@@ -98,6 +98,9 @@
                         <li class="{{isset($active_settings_slider) ? $active_settings_slider : ''}}">
                             <a href="{{route('admin.settings.slider.index')}}">Slider</a>
                         </li>
+                        <li class="{{isset($active_settings_administrator) ? $active_settings_administrator : ''}}">
+                            <a href="{{route('admin.settings.administrator.index')}}">Administrator</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

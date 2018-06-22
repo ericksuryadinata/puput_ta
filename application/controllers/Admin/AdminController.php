@@ -5,6 +5,7 @@ class AdminController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model(array('DashboardModel' => 'dashboard'));
 		$this->surename = $this->session->userdata('surename');
 		$this->email = $this->session->userdata('email');
 		$this->page->sebar('ctrl',$this);
@@ -14,6 +15,39 @@ class AdminController extends CI_Controller {
 		$data['csrf'] = $this->getCsrf();
 		$data['active_dashboard'] = 'active';
 		echo $this->page->tampil('admin.dashboard.index',$data);
+	}
+
+	public function log(){
+		if(!$this->input->is_ajax_request()){
+            show_404();
+        }
+		$list = $this->dashboard->get_data();
+		$data = array();
+		$no = $_GET['start'];
+		foreach ($list as $dashboard) {
+			$row = array();
+			if($dashboard->requested_url == '/'){
+				$requested = 'halaman awal';
+			}else{
+				$requested = str_replace('/','',$dashboard->requested_url);
+			}
+
+			if(isset($dashboard->referer_page) && $dashboard->referer_page !== ''){
+				$message = $dashboard->ip_address.' baru saja mengunjungi '.$requested.' dengan '.$dashboard->user_agent.' dari '.$dashboard->referer_page;
+			}else{
+				$message = $dashboard->ip_address.' baru saja mengunjungi '.$requested.' dengan '.$dashboard->user_agent;
+			}
+			$row[] = $message;
+			$row[] = $dashboard->access_date;
+			$data[] = $row;
+		}
+
+		$output = array('draw' => $_GET['draw'],
+						'recordsTotal' => $this->dashboard->count_all(),
+						'recordsFiltered' => $this->dashboard->count_filtered(),
+						'data' => $data
+						);
+		echo json_encode($output);
 	}
 
 

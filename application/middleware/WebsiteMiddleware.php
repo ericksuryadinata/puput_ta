@@ -166,13 +166,6 @@ class WebsiteMiddleware{
     }
 
     /**
-     * check track ip
-     * @return bool
-     */
-    private function track_ip(){
-        return ($this->ci->session->userdata('track_ip') === $this->ci->input->server('REMOTE_ADDR') ? TRUE : FALSE);
-    }
-    /**
      * check whether bot
      * 
      * @return	bool

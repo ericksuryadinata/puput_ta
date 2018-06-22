@@ -5,12 +5,11 @@ class AuthController extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
-		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
-		$this->lang->load('auth');
+		
 	}
 
 	public function index(){
-		if (!$this->ion_auth->logged_in()){
+		if (!$this->site_auth->is_login()){
 			echo $this->page->tampil('admin.auth.index');
 		}else{
 			redirect(route('admin.dashboard'));
@@ -22,19 +21,15 @@ class AuthController extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if ($this->form_validation->run() === TRUE){
-			$remember = 0;
-			if($this->input->post('rememberme') !== null){
-				$remember = 1;
-			}
-
-			if ($this->ion_auth->login($this->input->post('username'), $this->input->post('password'),(bool)$remember))
+			$login = $this->site_auth->login($this->input->post('username'), $this->input->post('password'));
+			if ($login['status'] == TRUE)
 			{
-				$this->set_session();
+				$this->set_session($login['data']);
 				redirect(route('admin.dashboard'));
 			}
 			else
 			{
-				$data['message'] = 'Data yang dimasukkan tidak sesuai';
+				$data['message'] = $login['message'];
 				$data['hidden'] = '';
 				echo $this->page->tampil('admin.auth.index',$data);
 			}
@@ -47,14 +42,11 @@ class AuthController extends CI_Controller {
 
 	public function logout(){
 
-		$logout = $this->ion_auth->logout();
-		$this->session->set_flashdata('message', $this->ion_auth->messages());
+		$this->site_auth->logout();
 		redirect(route('admin.auth.index'));
 	}
 
-	private function set_session(){
-		$user = $this->ion_auth->user()->row();
-		$user_group = $this->ion_auth->get_users_groups()->row();
+	private function set_session($user){
         if ($this->agent->is_browser())
         {
             $agent = $this->agent->browser().' '.$this->agent->version();
@@ -81,7 +73,6 @@ class AuthController extends CI_Controller {
             'platform' => $this->agent->platform(),
             'browser' => $agent,
 			'login' => true,
-			'group' => $user_group->name,
             'log_tanggal' => $user->last_login,
         );
        

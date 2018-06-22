@@ -75,8 +75,8 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
-                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
-                            <label for="rememberme">Remember Me</label>
+                            {{-- <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                            <label for="rememberme">Remember Me</label> --}}
                         </div>
                         <div class="col-xs-4">
                             <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
@@ -102,6 +102,18 @@
     <!-- Custom Js -->
     <script src="{{base_url('assets/admin/js/admin.js')}}"></script>
     <script src="{{base_url('assets/admin/js/pages/examples/sign-in.js')}}"></script>
+    <!-- Bootstrap Notify Plugin Js -->
+    <script src="{{base_url('assets/admin/plugins/bootstrap-notify/bootstrap-notify.js')}}"></script>
+    <script src="{{base_url('assets/admin/js/custom-admin.js')}}"></script>
+    <?php
+        if(isset($_SESSION['message'])){
+            if($_SESSION['message'] === 'success'){
+                echo "<script>showNotif('".$_SESSION['pesan']."','success')</script>";
+            }else{
+                echo "<script>showNotif('".$_SESSION['pesan']."','error')</script>";
+            }
+        }
+    ?>
 </body>
 
 </html>

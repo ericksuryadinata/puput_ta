@@ -39,6 +39,7 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
 
     Route::group('/', ['middleware' => ['AdminMiddleware']],function(){
         Route::get('dashboard','AdminController@index')->name('admin.dashboard');
+        Route::get('log','AdminController@log')->name('admin.dashboard.log');
         
         /**
          * Karena masih bug, maka penulisannya masih begini dulu :D
@@ -145,6 +146,15 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
             Route::post('update','SliderController@update',['prefix' => 'settings/slider'])->name('admin.settings.slider.update');
             Route::post('delete','SliderController@delete',['prefix' => 'settings/slider'])->name('admin.settings.slider.delete');
             Route::post('aktifkan','SliderController@aktifkan',['prefix' => 'settings/slider'])->name('admin.settings.slider.aktifkan');
+
+            Route::get('/','AdminUserController@index',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.index');
+            Route::get('tambah','AdminUserController@create',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.create');
+            Route::get('datatable','AdminUserController@datatable',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.datatable');
+            Route::post('save','AdminUserController@save',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.save');
+            Route::get('edit/{id}','AdminUserController@edit',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.edit');
+            Route::post('update','AdminUserController@update',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.update');
+            Route::post('delete','AdminUserController@delete',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.delete');
+            Route::post('aktifkan','AdminUserController@aktifkan',['prefix' => 'settings/administrator'])->name('admin.settings.administrator.aktifkan');
         });
     });
 });
