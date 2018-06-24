@@ -40,7 +40,8 @@
         </div>    
     </div>    
 </div>
-
+<div class="dt-sc-hr-invisible"></div>
+<div class="dt-sc-clear"></div>
 @section('additional-scripts')
 <script src="https://maps.googleapis.com/maps/api/js?key={{ getenv('GMAPS_API_KEY') }}"></script>
 <script>

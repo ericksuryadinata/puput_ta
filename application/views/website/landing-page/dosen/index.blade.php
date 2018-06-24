@@ -9,7 +9,9 @@
             @include('website.landing-page.dosen.content')
             @include('website.landing-page.includes.sidebar-kanan-news')
         </div>
+        <div class="dt-sc-hr-invisible"></div>
+        <div class="dt-sc-clear"></div>
+        @include('website.landing-page.includes.global-partner')
     </section>
-    @include('website.landing-page.includes.global-partner')
 </div>
 @stop

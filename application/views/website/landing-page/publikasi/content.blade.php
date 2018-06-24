@@ -13,6 +13,8 @@
         </tbody>
     </table>
 </div>
+<div class="dt-sc-hr-invisible-very-small"></div>
+<div class="dt-sc-clear"></div>
 @section('additional-styles')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <style>
