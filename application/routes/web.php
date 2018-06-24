@@ -53,6 +53,7 @@ Route::group('/',['namespace' => 'Website', 'middleware' => ['WebsiteMiddleware'
     Route::get('dosen/detail/{id}','DosenController@detail',['prefix' => 'dosen'])->name('dosen.detail');
     
     Route::get('publikasi','PublikasiController@index')->name('publikasi.index');
+    Route::get('datatables','PublikasiController@datatables')->name('publikasi.datatables');
     
     /**
      * Route Berita

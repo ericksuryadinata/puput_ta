@@ -22,6 +22,9 @@ class DosenController extends CI_Controller{
 	}
 
     public function datatables(){
+		if(!$this->input->is_ajax_request()){
+			show_404();
+		}
 		$list = $this->dosen->get_data();
 		$data = array();
 		$no = $_GET['start'];

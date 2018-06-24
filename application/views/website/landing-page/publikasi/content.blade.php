@@ -1,7 +1,7 @@
 <div class="container">
     <h2 style="color:#2971d3">Publikasi Teknik Informatika</h2>
     <hr>
-    <table id="dataTables" class="display" cellspacing="0" width="100%" border="0">
+    <table id="publikasi" class="display" cellspacing="0" width="100%" border="0">
         <thead>
             <tr bgcolor="#5a89f3">
                 <th width="3%"><font color="white">NO.</font></th>
@@ -10,28 +10,38 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td style="text-align: left;">
-                    <a href="http://informatika.untag-sby.ac.id/backend/uploads/pdf/Ahmad_Istighfarid1.pdf" target="_blank">
-                        <b><font color="black" >EFEKTIFITAS VASRIASI PUTARAN DARI PROSES BALANCING TERHADAP PUTARAN KERJA POROS YANG SESUNGGUHNYA</font></b>
-                    </a>
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Djoko Sulistyono, Arief Budiman
-                </td>
-                <td>2017 Gasal</td>
-            </tr>
         </tbody>
     </table>
 </div>
 @section('additional-styles')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <style>
+        .forceLeft{
+            text-align: left;
+        }
+    </style>
 @endsection
 @section('additional-scripts')
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#dataTables').DataTable();
+        jQuery(document).ready(function() {
+            jQuery('#publikasi').DataTable({
+                serverSide: true,
+                responsive:true,
+                order: [],
+                lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                ajax: {
+                    url: '{{route("publikasi.datatables")}}',
+                    type: 'GET',
+                    data:{'<?php echo $csrf["name"]?>':'<?php echo $csrf["token"]?>'}
+                },
+                columnDefs:[
+                    {
+                        className:"forceLeft",targets:[1]
+                    }
+                ],
+            });
+
         });
     </script>
 @endsection
