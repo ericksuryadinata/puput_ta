@@ -76,6 +76,11 @@
                         <i class="material-icons">event_note</i>
                         <span>Kerja Sama</span>
                     </a>
+                </li><li class="{{isset($active_publikasi) ? $active_publikasi : ''}}">
+                    <a href="{{route('admin.publikasi.index')}}">
+                        <i class="material-icons">collections_bookmark</i>
+                        <span>Publikasi</span>
+                    </a>
                 </li>
                 <li class="{{isset($active_dosen) ? $active_dosen : ''}}">
                     <a href="{{route('admin.dosen.index')}}">

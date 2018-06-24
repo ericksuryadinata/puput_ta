@@ -3,39 +3,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 use Carbon\Carbon;
 
-class BeritaController extends CI_Controller {
+class PublikasiController extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
 		$this->surename = $this->session->userdata('surename');
 		$this->email = $this->session->userdata('email');
-		$this->load->library(array('upload','image_lib'));
-		$this->load->helper(array('text'));
-        $this->load->model(array('PostBeritaModel'=>'postberita','KategoriBeritaModel'=>'kategoriberita'));
+		$this->load->library(array('upload'));
+		$this->load->helper('text');
+        $this->load->model(array('PublikasiModel'=>'publikasi'));
 		$this->page->sebar('ctrl',$this);
 	}
 	
 	public function index(){
         $data['csrf'] = $this->getCsrf();
-		$data['active_berita'] = 'active';
-		$data['active_berita_post'] = 'active';
-		echo $this->page->tampil('admin.berita.post.index',$data);
+		$data['active_publikasi'] = 'active';
+		echo $this->page->tampil('admin.publikasi.index',$data);
     }
 
     public function create(){
-		$data['active_berita'] = 'active';
-		$data['active_berita_post'] = 'active';
-		$data['kategori'] = $this->kategoriberita->all()->result();
-		echo $this->page->tampil('admin.berita.post.create',$data);
+		$data['active_publikasi'] = 'active';
+		echo $this->page->tampil('admin.publikasi.create',$data);
     }
 
     public function edit($id){
         $id_post = array('id' => $id);
-        $data['active_berita'] = 'active';
-		$data['active_berita_post'] = 'active';
-		$data['kategori'] = $this->kategoriberita->all()->result();
-		$data['post'] = $this->postberita->search($id_post)->first_row();
-		echo $this->page->tampil('admin.berita.post.edit',$data);
+        $data['active_publikasi'] = 'active';
+		$data['post'] = $this->publikasi->search($id_post)->first_row();
+		echo $this->page->tampil('admin.publikasi.edit',$data);
     }
 
     public function delete(){
@@ -44,9 +39,9 @@ class BeritaController extends CI_Controller {
         }
         $id = $this->input->post('id');
 		$id_post = array('id' => $id);
-		$post = $this->postberita->search($id_post)->first_row();
-        if($this->postberita->delete($id_post) != false){
-			$this->removeFile($post->berita_gambar,$this->imageSize('delete'));
+		$post = $this->publikasi->search($id_post)->first_row();
+        if($this->publikasi->delete($id_post) != false){
+			remove_file(upload_path('file').$post->publikasi_file);
             echo json_encode($this->success('delete',array('pesan' => 'Berhasil hapus data')));
         }else{
             echo json_encode($this->error('delete',array('pesan' => 'Gagal hapus data')));
@@ -54,99 +49,99 @@ class BeritaController extends CI_Controller {
     }
 
     public function save(){
-		$judul_berita = $this->security->xss_clean($this->input->post('judul_berita'));
-		$isi_berita = $this->security->xss_clean($this->input->post('isi_berita'));
-		$kategori = $this->security->xss_clean($this->input->post('kategori'));
-		$gambar = $this->security->xss_clean($this->input->post('gambar_berita'));
-		$slug = slug($judul_berita);
+		$judul_publikasi = $this->security->xss_clean($this->input->post('judul_publikasi'));
+		$penulis_publikasi = $this->security->xss_clean($this->input->post('penulis_publikasi'));
+		$semester = $this->security->xss_clean($this->input->post('semester_publikasi'));
+		$tahun = $this->security->xss_clean($this->input->post('tahun_publikasi'));
+		$file = $this->security->xss_clean($this->input->post('file_publikasi'));
 		
-		$filename = 'BERITA_'.seo($judul_berita).'_'.date('Ymdhis');
+		$filename = 'PUBLIKASI_'.seo(word_limiter($judul_publikasi,4)).'_'.seo($penulis_publikasi);
 		$this->upload->initialize($this->configUpload($filename));
 
-        if(!empty($_FILES['gambar_berita']['name'])){
-            if ($this->upload->do_upload('gambar_berita')){
-				$gbr = $this->upload->data();
-				$this->uploadResize($gbr,$this->imageSize('resize'));
-                $gambar = $gbr['file_name'];
+        if(!empty($_FILES['file_publikasi']['name'])){
+            if ($this->upload->do_upload('file_publikasi')){
+				$files = $this->upload->data();
+                $files_name = $files['file_name'];
             }else{
 				$this->session->set_flashdata($this->error('save',array('pesan' => 'Gagal Simpan Data, '.$this->upload->display_errors())));
-				redirect(route('admin.berita.post.index'));
+				redirect(route('admin.publikasi.index'));
 			}
                       
         }else{
-			$gambar = '';
+			$this->session->set_flashdata($this->error('save',array('pesan' => 'Gagal Simpan Data, file tidak boleh kosong ')));
+			redirect(route('admin.publikasi.index'));
         }
 
         $data = array(
-			'berita_judul' => $judul_berita,
-			'berita_isi' => $isi_berita,
-			'berita_slug' => $slug,
-			'berita_gambar' => $gambar,
-			'berita_kategori_id' => $kategori,
+			'publikasi_judul' => $judul_publikasi,
+			'publikasi_penulis' => $penulis_publikasi,
+			'publikasi_semester' => $semester,
+			'publikasi_tahun' => $tahun,
+			'publikasi_file' => $files_name,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'created_by' => $this->session->userdata('userid'),
             'updated_by' => $this->session->userdata('userid'),
         );
 
-        if($this->postberita->save($data)){
+        if($this->publikasi->save($data)){
 			$this->session->set_flashdata($this->success('save',array('pesan' => 'Berhasil Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.publikasi.index'));
 		}else{
 			$this->session->set_flashdata($this->error('save',array('pesan' => 'Gagal Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.publikasi.index'));
 		}
     }
 
     public function update(){
-        $judul_berita = $this->security->xss_clean($this->input->post('judul_berita'));
-		$isi_berita = $this->security->xss_clean($this->input->post('isi_berita'));
-		$kategori = $this->security->xss_clean($this->input->post('kategori'));
-		$gambar = $this->security->xss_clean($this->input->post('gambar_berita'));
-		$slug = slug($judul_berita);
+        $judul_publikasi = $this->security->xss_clean($this->input->post('judul_publikasi'));
+		$penulis_publikasi = $this->security->xss_clean($this->input->post('penulis_publikasi'));
+		$semester = $this->security->xss_clean($this->input->post('semester_publikasi'));
+		$tahun = $this->security->xss_clean($this->input->post('tahun_publikasi'));
+		$file = $this->security->xss_clean($this->input->post('file_publikasi'));
 		
 		$id = $this->security->xss_clean($this->input->post('id'));
         $id_post = array('id' => $id);
 		
 		// take the image name first we will need this for removing file
-        $post = $this->postberita->search($id_post)->first_row();
-		$post_gambar = $post->berita_gambar;
+        $post = $this->publikasi->search($id_post)->first_row();
+		$post_file = $post->publikasi_file;
 		
-        $filename = 'BERITA_'.seo($judul_berita).'_'.date('Ymdhis');
+        $filename = 'PUBLIKASI_'.seo(word_limiter($judul_publikasi,4)).'_'.seo($penulis_publikasi);
 		$this->upload->initialize($this->configUpload($filename));
 
-        if(!empty($_FILES['gambar_berita']['name'])){
-            if ($this->upload->do_upload('gambar_berita')){
-				$gbr = $this->upload->data();
-                $this->uploadResize($gbr,$this->imageSize('resize'));
-                $gambar = $gbr['file_name'];
+        if(!empty($_FILES['file_publikasi']['name'])){
+            if ($this->upload->do_upload('file_publikasi')){
+				$files = $this->upload->data();
+                $files_name = $files['file_name'];
             }else{
-				$this->session->set_flashdata($this->error('save',array('pesan' => 'Gagal Simpan Data, '.$this->upload->display_errors())));
-				redirect(route('admin.settings.link.index'));
+				$this->session->set_flashdata($this->error('update',array('pesan' => 'Gagal Update Data, '.$this->upload->display_errors())));
+				redirect(route('admin.publikasi.index'));
 			}
                       
         }else{
-			$gambar = '';
+			$this->session->set_flashdata($this->error('update',array('pesan' => 'Gagal Update Data, file tidak boleh kosong ')));
+			redirect(route('admin.publikasi.index'));
         }
 
         $data = array(
-			'berita_judul' => $judul_berita,
-			'berita_isi' => $isi_berita,
-			'berita_slug' => $slug,
-			'berita_gambar' => $gambar,
-			'berita_kategori_id' => $kategori,
+			'publikasi_judul' => $judul_publikasi,
+			'publikasi_penulis' => $penulis_publikasi,
+			'publikasi_semester' => $semester,
+			'publikasi_tahun' => $tahun,
+			'publikasi_file' => $files_name,
             'updated_at' => Carbon::now(),
             'updated_by' => $this->session->userdata('userid'),
         );
 
 
-        if($this->postberita->update($data,$id_post)){
-			$this->removeFile($post_gambar,$this->imageSize('delete'));
+        if($this->publikasi->update($data,$id_post)){
+			remove_file(upload_path('file').$post->publikasi_file);
 			$this->session->set_flashdata($this->success('update',array('pesan' => 'Berhasil Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.publikasi.index'));
 		}else{
 			$this->session->set_flashdata($this->error('update',array('pesan' => 'Gagal Simpan Data')));
-			redirect(route('admin.berita.post.index'));
+			redirect(route('admin.publikasi.index'));
 		}
     }
 
@@ -154,33 +149,34 @@ class BeritaController extends CI_Controller {
 		if(!$this->input->is_ajax_request()){
             show_404();
         }
-		$list = $this->postberita->get_data();
+		$list = $this->publikasi->get_data();
 		$data = array();
 		$no = $_GET['start'];
-		foreach ($list as $postberita) {
+		foreach ($list as $publikasi) {
 			$no++;
 			$row = array();
 			$row[] = $no;
-			if(isset($postberita->berita_gambar)){
-                $row[] = '<img src="'.base_url(upload_path('berita','original').$postberita->berita_gambar).'" height="75" width="75" style="object-fit:contain">';
-            }else{
-                $row[] = '<img src="'.base_url(default_image_for('untag')).'" height="75" width="75" style="object-fit:contain">';
-            }
-			$row[] = $postberita->berita_judul;
-			$row[] = word_limiter($postberita->berita_isi,10);
-			if(isset($postberita->berita_kategori_id)){
-				$kategori = $this->kategoriberita->search(array('id'=>$postberita->berita_kategori_id))->first_row();
-				$row[] = $kategori->nama_kategori;
+			$row[] = $publikasi->publikasi_judul;
+			$row[] = $publikasi->publikasi_penulis;
+			$row[] = $publikasi->publikasi_tahun;
+			if($publikasi->publikasi_semester == 1){
+				$row[] = 'Gasal';
+			}else{
+				$row[] = 'Genap';
 			}
-			$row[] = $postberita->berita_views;
-			$row[] = '<a href="'.route("admin.berita.post.edit",['id'=>$postberita->id]).'" class="btn bg-indigo waves-effect">Edit</a> 
-			<button type="button" class="btn bg-red waves-effect hapus" data-id="'.$postberita->id.'">Hapus</button>';
+			if(isset($publikasi->publikasi_file)){
+                $row[] = $publikasi->publikasi_file;
+            }else{
+                $row[] = 'Tidak ada file';
+            }
+			$row[] = '<a href="'.route("admin.publikasi.edit",['id'=>$publikasi->id]).'" class="btn bg-indigo waves-effect">Edit</a> 
+			<button type="button" class="btn bg-red waves-effect hapus" data-id="'.$publikasi->id.'">Hapus</button>';
 			$data[] = $row;
 		}
 
 		$output = array('draw' => $_GET['draw'],
-						'recordsTotal' => $this->postberita->count_all(),
-						'recordsFiltered' => $this->postberita->count_filtered(),
+						'recordsTotal' => $this->publikasi->count_all(),
+						'recordsFiltered' => $this->publikasi->count_filtered(),
 						'data' => $data
 						);
 		echo json_encode($output);
@@ -232,31 +228,8 @@ class BeritaController extends CI_Controller {
 		return $data;
 	}
 
-	private function imageSize($condition){
-		if($condition === 'resize'){
-			$sizes = array(
-				'mobile' => array(75,75),
-				'thumb' => array(300,250),
-				'medium' => array(500,270),
-				'large' => array(720,480),
-				'extra' => array(900,675)
-			);	
-		}else{
-			$sizes = array(
-				'original',
-				'mobile',
-				'thumb',
-				'medium',
-				'large',
-				'extra'
-			);	
-		}
-
-		return $sizes;
-	}
-
 	private function configUpload($filename){
-		$config['upload_path'] = upload_path('file'); //path folder
+		$config['upload_path'] = upload_path('','files'); //path folder
 		$config['allowed_types'] = 'xls|xlsx|pdf|doc|docx|odt|ods|ppt|pptx|csv'; //type yang dapat diakses bisa anda sesuaikan
 		$config['file_name'] = $filename;
 		return $config;

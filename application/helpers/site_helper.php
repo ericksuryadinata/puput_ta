@@ -161,7 +161,7 @@ if (!function_exists('upload_path')){
 			case 'extra':
 				return 'uploads/images/'.$type.'/'.'extra/';
 				break;
-			case 'file':
+			case 'files':
 				return 'uploads/files/';
 				break;
 			default:
