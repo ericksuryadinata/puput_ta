@@ -21,9 +21,9 @@
                         <li class="menu-item menu-item-simple-parent menu-item-depth-0">
                             <a href="#">Akademik</a>
                             <ul class="sub-menu">
-                                <li><a href="http://pmb.untag-sby.ac.id">PMB</a></li>
+                                <li><a href="http://pmb.untag-sby.ac.id" target="_blank">PMB</a></li>
                                 <li><a href="{{route('akademik.kurikulum')}}">Kurikulum</a></li>
-                                <li><a href="http://alumni.ft.untag-sby.ac.id/beranda">Alumni</a></li>
+                                <li><a href="http://alumni.ft.untag-sby.ac.id/beranda" target="_blank">Alumni</a></li>
                             </ul>
                             <a class="dt-menu-expand">+</a>
                         </li>
