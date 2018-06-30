@@ -21,6 +21,14 @@
         .forceLeft{
             text-align: left;
         }
+
+        table.dataTable thead th{
+            background:rgba(0, 51, 102, 1)
+        }
+
+        table.dataTable tfoot th{
+            background:rgba(0, 51, 102, 1)
+        }
     </style>
 @endsection
 @section('additional-scripts')

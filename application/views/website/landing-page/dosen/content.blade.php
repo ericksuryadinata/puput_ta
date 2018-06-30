@@ -25,6 +25,15 @@
 </div>
 @section('additional-styles')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <style>
+        table.dataTable thead th{
+            background:rgba(0, 51, 102, 1)
+        }
+
+        table.dataTable tfoot th{
+            background:rgba(0, 51, 102, 1)
+        }
+    </style>
 @endsection
 @section('additional-scripts')
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

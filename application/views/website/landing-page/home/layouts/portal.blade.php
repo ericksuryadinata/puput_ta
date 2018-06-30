@@ -5,14 +5,14 @@
             <div class="column dt-sc-one-half first">
                 <div class="ico-content right type4">
                     <div class="icon">
-                        <span class="fa fa-hand-o-up"></span>
+                        <span class="fa fa-university"></span>
                     </div>
                     <h3><a target="_blank" href="http://sim.untag-sby.ac.id">SIM Akademik </a></h3>
                     <p>Jadwal Kuliah, Nilai, KRS, Jurnal kuliah, Semua Kegiatan Akademik</p>
                 </div>
                 <div class="ico-content right type4">
                     <div class="icon">
-                        <span class="fa fa-hand-o-up"></span>
+                        <span class="fa fa-dekstop"></span>
                     </div>
                     <h3><a target="_blank" href="http://simkp.untag-sby.ac.id">SIM Kerja Praktek </a></h3>
                     <p>Alur & Tatacara Kerja Praktek Teknik Informatika </p>
@@ -22,14 +22,14 @@
             <div class="column dt-sc-one-half">
                 <div class="ico-content type4">
                     <div class="icon">
-                        <span class="fa fa-hand-o-up"></span>
+                        <span class="fa fa-group"></span>
                     </div>
                     <h3><a target="_blank" href="http://kkn.untag-sby.ac.id">SIM KKN </a></h3>
                     <p>Alur &amp; Tatacara Kegiatan KKN Untag Surabaya</p>
                 </div>
                 <div class="ico-content type4">
                     <div class="icon">
-                        <span class="fa fa-hand-o-up"></span>
+                        <span class="fa fa-book"></span>
                     </div>
                     <h3><a target="_blank" href="https://sites.google.com/a/untag-sby.ac.id/tugas-akhir/">SIM Tugas Akhir </a></h3>
                     <p>Alur &amp; Tatacara Tugas Akhir Teknik Informatika</p>
