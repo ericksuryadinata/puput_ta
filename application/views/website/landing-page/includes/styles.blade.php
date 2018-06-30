@@ -10,7 +10,8 @@
 <!-- Google fonts -->  
 <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!-- Font Awesome -->
-<link rel="stylesheet" href="{{base_url('assets/website/css/font-awesome.min.css')}}" type="text/css">
+<!-- <link rel="stylesheet" href="{{base_url('assets/website/css/font-awesome.min.css')}}" type="text/css"> -->
+<link rel="stylesheet" href="{{base_url('assets/website/css/font-awesome.css')}}" type="text/css">
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->

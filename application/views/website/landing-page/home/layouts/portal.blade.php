@@ -12,7 +12,7 @@
                 </div>
                 <div class="ico-content right type4">
                     <div class="icon">
-                        <span class="fa fa-dekstop"></span>
+                        <span class="fa fa-desktop"></span>
                     </div>
                     <h3><a target="_blank" href="http://simkp.untag-sby.ac.id">SIM Kerja Praktek </a></h3>
                     <p>Alur & Tatacara Kerja Praktek Teknik Informatika </p>
