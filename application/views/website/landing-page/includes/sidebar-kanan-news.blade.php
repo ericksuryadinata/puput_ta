@@ -19,7 +19,7 @@
             @if (count($ctrl->pengumuman)!= 0)
                 @foreach ($ctrl->pengumuman as $key => $value)
                 <li>
-                    <a href='#' title=''> {{ucwords(strtolower($value->pengumuman_judul))}}</a>
+                    <a href='{{route('pengumuman.detail',['slug' => $value->pengumuman_slug])}}' title=''> {{ucwords(strtolower($value->pengumuman_judul))}}</a>
                 </li>
                 @endforeach
             @else

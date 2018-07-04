@@ -88,6 +88,12 @@
                         <span>Daftar Dosen</span>
                     </a>
                 </li>
+                <li class="{{isset($active_inbox) ? $active_inbox : ''}}">
+                    <a href="{{route('admin.inbox.index')}}">
+                        <i class="material-icons">inbox</i>
+                        <span>Inbox</span>
+                    </a>
+                </li>
                 <li class="{{isset($active_settings) ? $active_settings : ''}}">
                     <a href="javascript:void(0)" class="menu-toggle">
                         <i class="material-icons">settings</i>

@@ -2,14 +2,30 @@
     <div class="content-full-width" id="primary"> 
         <div class="dt-sc-two-third column first">                                                       
             <h2 class="hr-border-title"><span>Hubungi Kami</span></h2>
-            <div id="ajax_contact_msg"></div>
-            <form class="contactForm" action="" method="POST">
+            <?php
+                if(isset($_SESSION['status'])){
+                    if($_SESSION['status'] == 'sukses'){
+                        $pesan = $_SESSION['pesan'];
+                        $class = 'dt-sc-success-box';
+                    }else{
+                        $pesan = $_SESSION['pesan'];
+                        $class = 'dt-sc-error-box';
+                    }
+                }else{
+                    $pesan = '';
+                    $class = '';
+                }
+            ?>
+            <div class="<?php echo $class?>">
+                <p><?php echo $pesan?></p>
+            </div>
+            <?php echo form_open(route('home.hubungi-kami.send'),'class="contactForm"')?>
                 <fieldset>
                     <label>Nama :</label>
                     <input type="text" name="nama" class="text">
                     <br>
                     <label>Email :</label>
-                    <input type="text" name="email" class="text">
+                    <input type="email" name="email" class="text">
                     <br>
                     <label>Subjek :</label>
                     <input type="text" name="subjek" class="text">

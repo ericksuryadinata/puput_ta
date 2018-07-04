@@ -131,7 +131,13 @@ Route::group('super-admin',['namespace' => 'Admin'],function(){
             Route::get('edit/{id}','DosenController@edit',['prefix' => 'dosen'])->name('admin.dosen.edit');
             Route::post('update','DosenController@update',['prefix' => 'dosen'])->name('admin.dosen.update');
             Route::post('delete','DosenController@delete',['prefix' => 'dosen'])->name('admin.dosen.delete');
+        });
 
+        Route::group('/',['namespace' => 'Inbox'], function(){
+            Route::get('/','InboxController@index',['prefix' => 'inbox'])->name('admin.inbox.index');
+            Route::get('datatable','InboxController@datatable',['prefix' => 'inbox'])->name('admin.inbox.datatable');
+            Route::get('read','InboxController@read',['prefix' => 'inbox'])->name('admin.inbox.read');
+            Route::post('afterRead','InboxController@afterRead',['prefix' => 'inbox'])->name('admin.inbox.afterRead');
         });
 
         Route::group('/', ['namespace' => 'Settings'], function(){

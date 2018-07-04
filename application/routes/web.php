@@ -47,6 +47,7 @@ Route::group('/',['namespace' => 'Website', 'middleware' => ['WebsiteMiddleware'
     Route::get('fasilitas','ProfilController@fasilitas')->name('profil.fasilitas');
     Route::get('kurikulum','AkademikController@kurikulum')->name('akademik.kurikulum');
     Route::get('hubungi-kami','HomeController@hubungi_kami')->name('home.hubungi-kami');
+    Route::post('hubungi-kami/send','HomeController@send')->name('home.hubungi-kami.send');
     
     Route::get('/','DosenController@index',['prefix' => 'dosen'])->name('dosen.index');
     Route::get('datatables','DosenController@datatables',['prefix' => 'dosen'])->name('dosen.datatables');

@@ -322,3 +322,11 @@ if (!function_exists('tgl_indo')){
 		}
      }
 }
+
+if ( ! function_exists('toTime'))
+{
+	function toTime($date){
+		$time=strtotime($date);
+		return date("H:i A",$time);
+	}
+}
