@@ -11,7 +11,7 @@ class HomeController extends CI_Controller {
 	}
 
 	public function index(){
-		$data['slider'] = $this->slider->newest(5)->result();
+		$data['slider'] = $this->slider->active(5)->result();
 		$data['post'] = $this->postberita->newest(4)->result();
 		echo $this->page->tampil('website.landing-page.home.index',$data);
 	}

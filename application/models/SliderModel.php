@@ -76,4 +76,8 @@ class SliderModel extends CI_Model{
 		return $this->db->order_by('created_at','ASC')->limit($limit)->get($this->table);
 	}
 
+	public function active($limit){
+		return $this->db->where('slider_aktif','1')->order_by('created_at','ASC')->limit($limit)->get($this->table);
+	}
+
 }
