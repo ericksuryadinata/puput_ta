@@ -21,7 +21,7 @@
             <div class='entry-body'>
                 <div class='entry-details'>
                     <p>
-                        <img src='{{base_url(image_path_for('hasil_karya','extra').$post->hasil_karya_gambar)}}'>
+                        <img src='{{base_url(image_path_for('hasil_karya','large').$post->hasil_karya_gambar)}}'>
                     </p>
                     <p>&nbsp;</p>
                     <div style="text-align: justify">
