@@ -29,6 +29,23 @@
                         </li>
                         <li class="menu-item menu-item-simple-parent menu-item-depth-0"><a href="{{route('home.hubungi-kami')}}">Kontak</a></li>
                         <li class="menu-item menu-item-simple-parent menu-item-depth-0"><a href="{{route('publikasi.index')}}">Publikasi</a></li>
+                        <?php
+                            if($_SERVER['REQUEST_URI'] !== '/'){
+                        ?>
+                            <li class="menu-item menu-item-simple-parent menu-item-depth-0">
+                                <a href="#">Informasi</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('berita.index')}}">Berita</a></li>
+                                    <li><a href="{{route('pengumuman.index')}}">Pengumuman</a></li>
+                                    <li><a href="{{route('hasil-karya.index')}}">Hasil Karya</a></li>
+                                    <li><a href="{{route('kerja-sama.index')}}">Kerja Sama</a></li>
+                                    <li><a href="{{route('dosen.index')}}">Daftar Dosen</a></li>
+                                </ul>
+                                <a class="dt-menu-expand">+</a>
+                            </li>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </nav>
             </div>
