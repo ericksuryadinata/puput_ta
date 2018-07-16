@@ -182,7 +182,50 @@
             ],
             toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
             toolbar2: 'print preview | forecolor backcolor emoticons',
-        })
+        });
+
+        tinymce.init({
+            selector: "textarea#latar_belakang_pendidikan",
+            theme: "modern",
+            height: 300,
+            plugins: [
+                'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'print preview | forecolor backcolor emoticons',
+        });
+
+        tinymce.init({
+            selector: "textarea#pengalaman_mengajar",
+            theme: "modern",
+            height: 300,
+            plugins: [
+                'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'print preview | forecolor backcolor emoticons',
+        });
+
+        tinymce.init({
+            selector: "textarea#publikasi",
+            theme: "modern",
+            height: 300,
+            plugins: [
+                'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'print preview | forecolor backcolor emoticons',
+        });
+
         tinymce.suffix = ".min";
         tinyMCE.baseURL = "{{base_url('assets/admin/plugins/tinymce')}}";
 
