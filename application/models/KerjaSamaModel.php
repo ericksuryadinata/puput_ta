@@ -73,7 +73,7 @@ class KerjaSamaModel extends CI_Model{
 	}
 	
 	public function all($limit,$offset){
-		return $this->db->order_by('created_at','ASC')->limit($limit,$offset)->get($this->table);
+		return $this->db->order_by('created_at','DESC')->limit($limit,$offset)->get($this->table);
 	}
 
 	public function totalPost(){
