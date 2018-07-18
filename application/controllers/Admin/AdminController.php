@@ -15,6 +15,7 @@ class AdminController extends CI_Controller {
 	public function index(){
 		$data['csrf'] = $this->getCsrf();
 		$data['active_dashboard'] = 'active';
+		$data['total_visitor'] = $this->dashboard->totalVisitor()->first_row();
 		echo $this->page->tampil('admin.dashboard.index',$data);
 	}
 

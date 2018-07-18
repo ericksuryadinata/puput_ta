@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Carbon\Carbon;
 class DashboardModel extends CI_Model{
 
     private $table = 'site_log';
@@ -70,6 +71,12 @@ class DashboardModel extends CI_Model{
 	public function delete($id){
         $this->db->where($id);
         return $this->db->delete($this->table);
-    }
+	}
+	
+	public function totalVisitor(){
+		$this->db->select('MAX(no_of_visits) as total');
+		$this->db->from($this->table);
+		return $this->db->get();
+	}
 
 }
