@@ -26,9 +26,9 @@ class PublikasiController extends CI_Controller {
 			$row = array();
 			$row[] = $no;
 			if(isset($publikasi->publikasi_file)){
-                $row[] = '<a href="'.base_url(upload_path('','files').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
+                $row[] = '<a href="'.base_url(upload_path('','viewerjs').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
             }else{
-                $row[] = '<a href="#" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
+                $row[] = '<a href="#"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
             }
 			if($publikasi->publikasi_semester == 1){
 				$row[] = $publikasi->publikasi_tahun.' Gasal';

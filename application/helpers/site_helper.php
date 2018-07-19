@@ -164,6 +164,9 @@ if (!function_exists('upload_path')){
 			case 'files':
 				return 'uploads/files/';
 				break;
+			case 'viewerjs':
+				return 'ViewerJS/#/uploads/files/';
+				break;
 			default:
 				return 'uploads/images/'.$type.'/';
 				break;
