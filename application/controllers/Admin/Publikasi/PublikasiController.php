@@ -230,7 +230,7 @@ class PublikasiController extends CI_Controller {
 
 	private function configUpload($filename){
 		$config['upload_path'] = upload_path('','files'); //path folder
-		$config['allowed_types'] = 'xls|xlsx|pdf|doc|docx|odt|ods|ppt|pptx|csv'; //type yang dapat diakses bisa anda sesuaikan
+		$config['allowed_types'] = 'pdf|odt|ods|odp'; //type yang dapat diakses bisa anda sesuaikan
 		$config['file_name'] = $filename;
 		return $config;
 	}
