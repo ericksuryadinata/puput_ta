@@ -165,10 +165,10 @@ class PublikasiController extends CI_Controller {
 				$row[] = 'Genap';
 			}
 			if(isset($publikasi->publikasi_file)){
-				$file = '<button type="button" class="btn bg-green waves-effect><a href="http://docs.google.com/gview?url='.base_url(upload_path('','files').$publikasi->publikasi_file).'" target="_blank">View</a></button>';
+				$file = '<a href="http://docs.google.com/gview?url='.base_url(upload_path('','files').$publikasi->publikasi_file).'" target="_blank"><button type="button" class="btn bg-green waves-effect">View</button></a>';
                 $row[] = $publikasi->publikasi_file;
             }else{
-				$file = '<button type="button" class="btn bg-green waves-effect><a href="#">View</a></button>';;
+				$file = '<a href="#"><button type="button" class="btn bg-green waves-effect">View</button></a>';
                 $row[] = 'Tidak ada file';
             }
 			$row[] = '<a href="'.route("admin.publikasi.edit",['id'=>$publikasi->id]).'" class="btn bg-indigo waves-effect">Edit</a> 
