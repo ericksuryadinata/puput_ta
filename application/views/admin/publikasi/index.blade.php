@@ -58,6 +58,7 @@
 <input type="text" hidden name="token_csrf" value="<?php echo $csrf["token"]?>">
 <input type="text" hidden name="name_csrf" value="<?php echo $csrf["name"]?>">
 @stop
+
 @section('additional-scripts')
     <!-- Bootstrap Notify Plugin Js -->
     <script src="{{base_url('assets/admin/plugins/bootstrap-notify/bootstrap-notify.js')}}"></script>
