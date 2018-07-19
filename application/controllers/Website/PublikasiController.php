@@ -20,13 +20,19 @@ class PublikasiController extends CI_Controller {
 		}
 		$list = $this->publikasi->get_data();
 		$data = array();
+		$allowed_type = array('xls|xlsx|doc|docx|ppt|pptx');
 		$no = $_GET['start'];
 		foreach ($list as $publikasi) {
 			$no++;
 			$row = array();
 			$row[] = $no;
 			if(isset($publikasi->publikasi_file)){
-                $row[] = '<a href="'.base_url(upload_path('','viewerjs').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
+				$ext = pathinfo($publikasi->publikasi_file, PATHINFO_EXTENSION);
+				if(in_array($ext,$allowed_type)){
+					$row[] = '<a href="http://docs.google.com/gview?url='.base_url(upload_path('','files').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
+				}else{
+					$row[] = '<a href="'.base_url(upload_path('','viewerjs').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
+				}
             }else{
                 $row[] = '<a href="#"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
             }
