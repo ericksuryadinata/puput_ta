@@ -20,7 +20,7 @@ class PublikasiController extends CI_Controller {
 		}
 		$list = $this->publikasi->get_data();
 		$data = array();
-		$allowed_type = array('xls|xlsx|doc|docx|ppt|pptx');
+		$allowed_type = array('xls','xlsx','doc','docx','ppt','pptx');
 		$no = $_GET['start'];
 		foreach ($list as $publikasi) {
 			$no++;
