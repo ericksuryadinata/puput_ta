@@ -31,7 +31,7 @@ class PublikasiController extends CI_Controller {
 				if(in_array($ext,$allowed_type)){
 					$row[] = '<a href="http://docs.google.com/gview?url='.base_url(upload_path('','files').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
 				}else{
-					$row[] = '<a href="'.base_url(upload_path('','viewerjs').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
+					$row[] = '<a href="http://docs.google.com/gview?url='.base_url(upload_path('','files').$publikasi->publikasi_file).'" target="_blank"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
 				}
             }else{
                 $row[] = '<a href="#"> <b>'.strtoupper($publikasi->publikasi_judul).'</b></a><br>'.$publikasi->publikasi_penulis.'';
